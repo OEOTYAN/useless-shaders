@@ -2,12 +2,12 @@
     "format_version": 2,
     "header": {
         "description": "made by OEOTYAN",
-        "name": "小地图+区显与抗锯齿+红显+亮显+掉落物描边+掉落物透视+远处不透明植物修复+远处水面不透明修复",
-        "uuid": "79a49b8d-059c-40df-bc63-9a09abab492c",
+        "name": "some useless shaders",
+        "uuid": "b11c3839-30cf-4137-876b-774bc0289b3d",
         "version": [
             0,
             0,
-            10
+            11
         ],
         "min_engine_version": [
             1,
@@ -17,13 +17,13 @@
     },
     "modules": [
         {
-            "description": "",
+            "description": "made by OEOTYAN",
             "type": "resources",
-            "uuid": "42385cc4-23fd-4a26-a468-da41566e833f",
+            "uuid": "74b48f02-1169-479d-a6df-f795611e188e",
             "version": [
                 0,
                 0,
-                10
+                11
             ]
         }
     ]
