@@ -1,0 +1,96 @@
+{
+    "materials": {
+        "version": "1.0.0",
+        "particles_base": {
+            "vertexShader": "shaders/color_uv.vertex",
+            "vrGeometryShader": "shaders/color_uv.geometry",
+            "fragmentShader": "shaders/color_texture.fragment",
+            "vertexFields": [
+                {
+                    "field": "Position"
+                },
+                {
+                    "field": "Color"
+                },
+                {
+                    "field": "UV0"
+                }
+            ],
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "Point"
+                }
+            ],
+            "msaaSupport": "Both"
+        },
+        "particles_opaque:particles_base": {
+            "+states": [
+                "DisableAlphaWrite"
+            ]
+        },
+        "particles_alpha:particles_base": {
+            "+defines": [
+                "ALPHA_TEST"
+            ],
+            "+states": [
+                "DisableAlphaWrite"
+            ]
+        },
+        "particles_blend:particles_base": {
+            "+states": [
+                "Blending",
+                "DisableCulling",
+                "DisableDepthWrite"
+            ],
+            "blendSrc": "SourceAlpha",
+            "blendDst": "OneMinusSrcAlpha",
+            // z-fighting fix
+            "depthBias": 0,
+            "slopeScaledDepthBias": -1,
+            "depthBiasOGL": 0.0,
+            "slopeScaledDepthBiasOGL": -1
+        },
+        "particles_Xray:particles_blend": {
+            "depthFunc": "Always"
+        },
+        "particles_effects:particles_alpha": {
+            "+defines": [
+                "EFFECTS_OFFSET"
+            ],
+            "msaaSupport": "Both"
+        },
+        "particles_random_test": {
+            "vertexShader": "shaders/particle_random_test.vertex",
+            "vrGeometryShader": "shaders/color_uv.geometry",
+            "fragmentShader": "shaders/color_texture.fragment",
+            "vertexFields": [
+                {
+                    "field": "Position"
+                },
+                {
+                    "field": "Color"
+                },
+                {
+                    "field": "Normal"
+                },
+                {
+                    "field": "UV0"
+                }
+            ],
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "Point"
+                }
+            ],
+            "+defines": [
+                "ALPHA_TEST"
+            ],
+            "+states": [
+                "DisableAlphaWrite"
+            ],
+            "msaaSupport": "Both"
+        }
+    }
+}
