@@ -1,0 +1,416 @@
+// __multiversion__
+// This signals the loading code to prepend either #version 100 or #version 300 es as apropriate.
+
+#include "fragmentVersionCentroid.h"
+
+#if __VERSION__ >= 300
+	#ifndef BYPASS_PIXEL_SHADER
+		#if defined(TEXEL_AA) && defined(TEXEL_AA_FEATURE)
+			_centroid in highp vec2 uv0;
+			_centroid in highp vec2 uv1;
+		#else
+			_centroid in vec2 uv0;
+			_centroid in vec2 uv1;
+		#endif
+	#endif
+#else
+	#ifndef BYPASS_PIXEL_SHADER
+		varying vec2 uv0;
+		varying vec2 uv1;
+	#endif
+#endif
+
+varying vec4 color;
+varying vec3 chunkPos;
+
+#ifdef FOG
+varying vec4 fogColor;
+#endif
+
+#include "uniformShaderConstants.h"
+#include "util.h"
+#include "settings.h"
+
+LAYOUT_BINDING(0) uniform sampler2D TEXTURE_0;
+LAYOUT_BINDING(1) uniform sampler2D TEXTURE_1;
+LAYOUT_BINDING(2) uniform sampler2D TEXTURE_2;
+
+void main()
+{
+#ifdef BYPASS_PIXEL_SHADER
+	gl_FragColor = vec4(0, 0, 0, 0);
+	return;
+#else 
+
+#if USE_TEXEL_AA
+	vec4 diffuse = texture2D_AA(TEXTURE_0, uv0);
+#else
+	vec4 diffuse = texture2D(TEXTURE_0, uv0);
+#endif
+	
+#ifdef SEASONS_FAR
+	diffuse.a = 1.0;
+#endif
+
+#if USE_ALPHA_TEST
+	#ifdef ALPHA_TO_COVERAGE
+	#define ALPHA_THRESHOLD 0.05
+	#else
+	#define ALPHA_THRESHOLD 0.5
+	#endif
+	if(diffuse.a < ALPHA_THRESHOLD)
+		discard;
+#endif
+	
+vec4 inColor = color;
+
+#if defined(BLEND)
+	diffuse.a *= inColor.a;
+#endif
+
+#if !defined(ALWAYS_LIT)
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+#endif
+
+#ifndef SEASONS
+	#if !USE_ALPHA_TEST && !defined(BLEND)
+		diffuse.a = inColor.a;
+	#endif
+	
+	diffuse.rgb *= inColor.rgb;
+#else
+	vec2 uv = inColor.xy;
+	diffuse.rgb *= mix(vec3(1.0,1.0,1.0), texture2D( TEXTURE_2, uv).rgb*2.0, inColor.b);
+	diffuse.rgb *= inColor.aaa;
+	diffuse.a = 1.0;
+#endif
+
+vec3 cp = fract (chunkPos.xyz);
+
+	if
+	(
+			((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.y < 0.0625 || chunkPos.y > 15.9375)) ||
+			((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.z < 0.0625 || chunkPos.z > 15.9375)) ||
+			((chunkPos.y < 0.0625 || chunkPos.y > 15.9375) && (chunkPos.z < 0.0625 || chunkPos.z > 15.9375))
+	)
+		diffuse.rgb =mix(diffuse.rgb,vec3(0.0f, 0.0f, 1.0f),0.2f);
+else
+	if
+	(
+		((chunkPos.x < 0.03125 || chunkPos.x > 15.96875) || (chunkPos.z < 0.03125 || chunkPos.z > 15.96875)) &&
+		(
+			((cp.x < 0.03125 || cp.x > 0.96875) && (cp.y < 0.03125 || cp.y > 0.96875)) ||
+			((cp.x < 0.03125 || cp.x > 0.96875) && (cp.z < 0.03125 || cp.z > 0.96875)) ||
+			((cp.y < 0.03125 || cp.y > 0.96875) && (cp.z < 0.03125 || cp.z > 0.96875))
+		)
+	)
+		diffuse.rgb = (diffuse.rgb/0.4f)*(vec3(1.0f, 1.0f, 1.0f) - diffuse.rgb);
+
+    cp.x=cp.x*3.0-1.1;
+    cp.z=cp.z*3.0-1.1;
+
+
+if(uv1.x<0.001){
+	if((cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>=0.001&&uv1.x<=0.0625){
+	if((cp.x<=0.4+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.0625&&uv1.x<=0.125){
+	if((cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.55&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.125&&uv1.x<=0.1875){
+	if((cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.1875&&uv1.x<=0.25){
+	if((cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.25&&uv1.x<=0.3125){
+	if((cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.3125&&uv1.x<=0.375){
+	if((cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.35)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.375&&uv1.x<=0.4375){
+	if((cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.65&&cp.z>=0.55)){
+diffuse.rgba = mix(diffuse.rgba,vec4(1.0,0.0,0.0,1.0), 0.3);
+	}
+}
+
+if(uv1.x>0.4375&&uv1.x<=0.5){
+	if((cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.5&&uv1.x<=0.5625){
+	if((cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.5625&&uv1.x<=0.625){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.625&&uv1.x<=0.6875){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.4&&cp.x>=0.1&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.6875&&uv1.x<=0.75){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.55&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.1&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.75&&uv1.x<=0.8125){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.8125&&uv1.x<=0.875){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+if(uv1.x>0.875){
+	if((cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)){
+diffuse.rgba = mix(diffuse.rgba,vec4(0.0,1.0,0.0,1.5), 0.15);
+	}
+}
+
+
+if(color.r>0.999&&color.g>50.0/255.0-0.005&&color.g<50.0/255.0+0.005&&color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(15.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>244.0/255.0-0.005&&color.r<244.0/255.0+0.005&&color.g>27.0/255.0-0.005&&color.g<27.0/255.0+0.005&&color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(14.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>234.0/255.0-0.005&&color.r<234.0/255.0+0.005&&color.g>6.0/255.0-0.005&&color.g<6.0/255.0+0.005&&color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(13.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>224.0/255.0-0.005&&color.r<224.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(12.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.55&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.1&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>214.0/255.0-0.005&&color.r<214.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(11.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.4&&cp.x>=0.1&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>204.0/255.0-0.005&&color.r<204.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(10.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.7&&cp.x>=0.4&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.6&&cp.x>=0.5&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.7&&cp.x>=0.6&&cp.z<=0.75&&cp.z>=0.65)
+	 ||(cp.x<=0.2&&cp.x>=0.1&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4&&cp.x>=0.3&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3&&cp.x>=0.2&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+if(color.r>193.0/255.0-0.005&&color.r<193.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(9.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>183.0/255.0-0.005&&color.r<183.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(8.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>173.0/255.0-0.005&&color.r<173.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(7.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.65&&cp.z>=0.55)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>163.0/255.0-0.005&&color.r<163.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(6.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.35)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>153.0/255.0-0.005&&color.r<153.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(5.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.55&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>142.0/255.0-0.005&&color.r<142.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(4.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>132.0/255.0-0.005&&color.r<132.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(3.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>122.0/255.0-0.005&&color.r<122.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(2.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.55&&cp.z>=0.45)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.45)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.55&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>112.0/255.0-0.005&&color.r<112.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(mod(floor(1.0/exp2(floor((4.0/0.6)*(cp.x-0.1))))*1.0,2.0)>=0.5&&cp.z<=0.15&&cp.z>=0.1)||(cp.x<=0.4+0.15&&cp.x>=0.1+0.15&&cp.z<=0.35&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.35)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.65)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+if(color.r>76.0/255.0-0.005&&color.r<76.0/255.0+0.005&&color.g+color.b<0.005){
+	if((cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.08&&cp.z>=0.05)||(cp.x<=0.7&&cp.x>=0.1&&cp.z<=0.2&&cp.z>=0.17)
+	 ||(cp.x<=0.2+0.15&&cp.x>=0.1+0.15&&cp.z<=0.75&&cp.z>=0.25)||(cp.x<=0.4+0.15&&cp.x>=0.3+0.15&&cp.z<=0.75&&cp.z>=0.25)
+	 ||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.75&&cp.z>=0.65)||(cp.x<=0.3+0.15&&cp.x>=0.2+0.15&&cp.z<=0.35&&cp.z>=0.25)){
+	diffuse.rgb = vec3(1.0,1.0,1.0);
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+	}
+}
+
+
+#ifdef FOG
+	diffuse.rgb = mix( diffuse.rgb, fogColor.rgb, fogColor.a );
+#endif
+
+	gl_FragColor = diffuse;
+	
+#endif // BYPASS_PIXEL_SHADER
+}

@@ -6,3 +6,9 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/OEOTYAN/useless-shaders?style=for-the-badge)
 
 some useless shaders for Minecraft Bedrock Edition
+
+HLSL has full functionality
+
+GLSL is a neutered version and is not guaranteed to work
+
+电脑能用，手机是阉割版，不保证能用。
