@@ -9,6 +9,7 @@
 
 struct GeometryShaderInput
 {
+
 	float4		pos				: SV_POSITION;
 	float4		light			: LIGHT;
 	float4		fogColor		: FOG_COLOR;
@@ -36,6 +37,7 @@ struct GeometryShaderInput
 #endif
 };
 
+
 // Per-pixel color data passed through the pixel shader.
 struct GeometryShaderOutput
 {
@@ -44,7 +46,6 @@ struct GeometryShaderOutput
 	float4		fogColor		: FOG_COLOR;
     float edge : edge;
     float map : map;
-    #ifdef ENABLE_OUTLINE
     #ifndef UI_ENTITY
     #ifndef ARMOR_STAND
        #ifndef BEACON
@@ -57,7 +58,6 @@ struct GeometryShaderOutput
 	float3 bitangent : bitan;
 #endif
 
-        #endif
         #endif
         #endif
         #endif
@@ -94,12 +94,48 @@ struct GeometryShaderOutput
 
 void main(triangle GeometryShaderInput input[3], inout TriangleStream<GeometryShaderOutput> outStream)
 {
+    float headbias=0.0;
+#ifdef IS_HEAD
+headbias=0.02;
+    #endif
 
+#ifndef UI_ENTITY
 #ifndef NO_TEXTURE
+
+bool notFrame = true;
+
+    #ifndef IS_SHULKER_BOX
+#ifndef IS_HEAD
+float bisss=0.25;
+if(abs(length(WORLD[1].y)-bisss)>0.00001||(abs(length(WORLD[1].y)-bisss)+abs(max(max(max(abs(WORLD[0].x),abs(WORLD[0].y)),abs(WORLD[0].z)),
+max(max(abs(WORLD[2].x),abs(WORLD[2].y)),abs(WORLD[2].z)))-bisss)<0.0000001)){
+notFrame=false;
+}
+    #endif
+    #endif
+
     float2 uvzmin=min(min(input[0].uv,input[1].uv),input[2].uv);
 float2 uvzmax=max(max(input[0].uv,input[1].uv),input[2].uv);
         float uvl=length((uvzmax-uvzmin)*TEXTURE_DIMENSIONS.xy);
 #endif
+#endif
+
+
+   #ifdef IS_SHULKER_BOX
+float bisss=0.25/16.0;
+if(abs(length(WORLD[1].y)-bisss)>0.0001||(abs(length(WORLD[1].y)-bisss)+abs(max(max(max(abs(WORLD[0].x),abs(WORLD[0].y)),abs(WORLD[0].z)),
+max(max(abs(WORLD[2].x),abs(WORLD[2].y)),abs(WORLD[2].z)))-bisss)<0.000050001)){
+notFrame=false;
+}
+#endif
+
+#ifdef IS_HEAD
+float bisss=0.5;
+if(abs(length(WORLD[1].y)-bisss)>0.0001||(abs(length(WORLD[1].y)-bisss)+abs(max(max(max(abs(WORLD[0].x),abs(WORLD[0].y)),abs(WORLD[0].z)),
+max(max(abs(WORLD[2].x),abs(WORLD[2].y)),abs(WORLD[2].z)))-bisss)<0.0000001)){
+notFrame=false;
+}
+    #endif
 
 
        #ifndef INSTANCEDSTEREO
@@ -127,14 +163,16 @@ output.map=0;
        #ifndef BEACON
     #ifndef ARMOR_STAND
         #ifdef ENABLE_XRAY
-#ifndef INSTANCEDSTEREO
+#ifndef INSTANCEDSTEREO    
+#ifndef UI_ENTITY
 #ifndef NO_TEXTURE
-    if(poslen/uvl<BLOCK_PSIZE)
+    if(poslen/uvl<((BLOCK_PSIZE)+headbias)&&notFrame)
     #else
     if(poslen<ITEM_PSIZE)
 #endif
 if(poslen<0.6)
  output.pos.z =output.pos.z*0.8;
+        #endif
         #endif
         #endif
         #endif
@@ -224,9 +262,10 @@ if(poslen<0.6)
 
 		output.edge = 0;
 
+    #ifdef ENABLE_OUTLINE
 		output.worldpos = input[j].worldpos;
 		output.normal = 0;
-
+#endif
 
 #ifndef NO_TEXTURE
 		output.uv				= input[j].uv;
@@ -265,7 +304,9 @@ if(poslen<0.6)
 
 #ifdef ENABLE_OUTLINE
 #ifndef NO_TEXTURE
-    if(poslen/uvl<BLOCK_PSIZE)
+#ifndef UI_ENTITY
+    if(poslen/uvl<((BLOCK_PSIZE)+headbias)&&notFrame)
+#endif
     #else
     if(poslen<ITEM_PSIZE)
 #endif
@@ -314,6 +355,7 @@ if(poslen<1){
 float3 biasItem=float3(8,0.5,8);
 float3 biasChest=float3(0.5,0.5,0.5);
 float3 biasShulker=float3(0,16,0);
+float3 biasHead=-float3(0,0.25,0);
 float thickness=(float)OUTLINE_WIDTH;
 
 float bz=pow(input[j].pos.z,0.7);
@@ -322,6 +364,7 @@ float bz=pow(input[j].pos.z,0.7);
             output.mt=1+bz*thickness;
         #endif
 
+#ifndef IS_HEAD
 #ifdef NO_TEXTURE
 output.pos = mul(WORLDVIEWPROJ, float4(biasItem+(input[j].worldpos-biasItem)*(1+bz*thickness*6/biasItem),1));
 #else
@@ -336,6 +379,10 @@ output.pos = mul(WORLDVIEWPROJ, float4(biasShulker+(input[j].worldpos-biasShulke
 #endif
 #endif
 
+
+#else
+output.pos = mul(WORLDVIEWPROJ, float4(biasHead+(input[j].worldpos-biasHead)*(1+bz*thickness),1));
+#endif
 
 		output.worldpos = input[j].worldpos*(1+bz*thickness);
 		output.normal = normalize(-input[j].normal);
