@@ -87,7 +87,9 @@ float2 maxuv=max(input[0].uv0,max(input[1].uv0,input[2].uv0));
 			output.pos = input[j].pos;
             #ifdef ALLOW_FADE
             float3 ppppos=input[j].chunkPos;
+            #ifdef ENABLE_CHUNK_LOADING_ANIMATION
              ppppos.y+=(12.0*Pow2(cos(3.141592653589793f*(0.5-RENDER_CHUNK_FOG_ALPHA)))+128.0 * (RENDER_CHUNK_FOG_ALPHA+log(1.0-RENDER_CHUNK_FOG_ALPHA)));
+            #endif
 			output.pos =  mul(WORLDVIEW, float4((ppppos.xyz * CHUNK_ORIGIN_AND_SCALE.w) + CHUNK_ORIGIN_AND_SCALE.xyz, 1 ));
 		output.pos= mul(PROJ, output.pos);
             #endif
