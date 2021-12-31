@@ -1,19 +1,25 @@
 {
-  "materials": {
-    "version": "1.0.0",
-
-    "clouds": {
-      "+states": [ "DisableAlphaWrite" ],
-      "vertexShader": "shaders/cloud.vertex",
-      "vrGeometryShader": "shaders/cloud.geometry",
-      "fragmentShader": "shaders/color.fragment",
-      "vertexFields": [
-        { "field": "Position" },
-        { "field": "Color" },
-        { "field": "UV0" }
-      ],
-      "msaaSupport": "Both"
-
+    "materials": {
+        "version": "1.0.0",
+        "clouds": {
+            "+states": [
+                "DisableAlphaWrite"
+            ],
+            "vertexShader": "shaders/cloud.vertex",
+            "vrGeometryShader": "shaders/cloud.geometry",
+            "fragmentShader": "shaders/color.fragment",
+            "vertexFields": [
+                {
+                    "field": "Position"
+                },
+                {
+                    "field": "Color"
+                },
+                {
+                    "field": "UV0"
+                }
+            ],
+            "msaaSupport": "Both"
+        }
     }
-  }
 }

@@ -1,254 +1,252 @@
 {
-  "materials": {
-    "version": "1.0.0",
-    "terrain_base": {
-      "vertexShader": "shaders/renderchunk.vertex",
-      "vrGeometryShader": "shaders/renderchunk.geometry",
-      "geometryShader": "shaders/renderchunk.geometry",
-      "fragmentShader": "shaders/renderchunk.fragment",
-      "+defines": [
-        "TEXEL_AA",
-        "ATLAS_TEXTURE"
-      ],
-      // z-fighting fix
-      //"blendSrc": "SourceAlpha",
-      //"blendDst": "OneMinusSrcColor",
-      //"blendDst": "OneMinusSrcColor",
-      //"blendSrc": "Zero",
-      //"blendDst": "SourceColor",
-      "+states": [
-        "DisableAlphaWrite" /*,
+    "materials": {
+        "version": "1.0.0",
+        "terrain_base": {
+            "vertexShader": "shaders/renderchunk.vertex",
+            "vrGeometryShader": "shaders/renderchunk.geometry",
+            "geometryShader": "shaders/renderchunk.geometry",
+            "fragmentShader": "shaders/renderchunk.fragment",
+            "+defines": [
+                "TEXEL_AA",
+                "ATLAS_TEXTURE"
+            ],
+            // z-fighting fix
+            //"blendSrc": "SourceAlpha",
+            //"blendDst": "OneMinusSrcColor",
+            //"blendDst": "OneMinusSrcColor",
+            //"blendSrc": "Zero",
+            //"blendDst": "SourceColor",
+            "+states": [
+                "DisableAlphaWrite" /*,
         "EnableCulling",
         "DisableCulling",
         "DisableStencilTest",
         "DisableDepthTest"
         //"Blending"*/
-      ],
-      //"depthFunc": "LessEqual",
-      "+samplerStates": [
-        {
-          "samplerIndex": 0,
-          "textureFilter": "TexelAA"
-        },
-        {
-          "samplerIndex": 1,
-          "textureFilter": "Bilinear"
-        },
-        {
-          "samplerIndex": 3,
-          "textureFilter": "Point"
-        },
-        {
-          "samplerIndex": 4,
-          "textureFilter": "Point"
-        }
-      ],
-      "vertexFields": [
-        {
-          "field": "Position"
-        },
-        {
-          "field": "UV1"
-        },
-        {
-          "field": "Color"
-        },
-        {
-          "field": "UV0"
-        }
-      ],
-      "msaaSupport": "Both",
-      "variants": [
-        {
-          "fog": {
-          }
-        },
-        {
-          "lit": {
-            "+defines": [
-              "ALWAYS_LIT"
+            ],
+            //"depthFunc": "LessEqual",
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "TexelAA"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureFilter": "Bilinear"
+                },
+                {
+                    "samplerIndex": 3,
+                    "textureFilter": "Point"
+                },
+                {
+                    "samplerIndex": 4,
+                    "textureFilter": "Point"
+                }
+            ],
+            "vertexFields": [
+                {
+                    "field": "Position"
+                },
+                {
+                    "field": "UV1"
+                },
+                {
+                    "field": "Color"
+                },
+                {
+                    "field": "UV0"
+                }
+            ],
+            "msaaSupport": "Both",
+            "variants": [
+                {
+                    "fog": {}
+                },
+                {
+                    "lit": {
+                        "+defines": [
+                            "ALWAYS_LIT"
+                        ]
+                    }
+                },
+                {
+                    "underwater": {}
+                },
+                {
+                    "fog.underwater": {}
+                },
+                {
+                    "fading": {
+                        "+defines": [
+                            "ALLOW_FADE"
+                        ]
+                    }
+                }
             ]
-          }
         },
-        {
-          "underwater": {
-          }
-        },
-        {
-          "fog.underwater": {}
-        },
-        {
-          "fading": {
-            "+defines": [
-              "ALLOW_FADE"
+        "terrain_opaque:terrain_base": {
+            "+variants": [
+                {
+                    "underlava": {
+                        "+states": [
+                            "DisableCulling"
+                        ]
+                    }
+                }
             ]
-          }
-        }
-      ]
-    },
-    "terrain_opaque:terrain_base": {
-      "+variants": [
-        {
-          "underlava": {
+        },
+        "terrain_opaque_seasons:terrain_base": {
+            "+defines": [
+                "SEASONS"
+            ],
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "TexelAA"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureFilter": "Bilinear"
+                },
+                {
+                    "samplerIndex": 2,
+                    "textureFilter": "Point"
+                }
+            ]
+        },
+        "terrain_blend:terrain_base": {
+            "+defines": [
+                "BLEND"
+            ],
+            "depthFunc": "LessEqual",
             "+states": [
-              "DisableCulling"
+                "Blending"
+            ],
+            "+variants": [
+                {
+                    "underwater": {}
+                },
+                {
+                    "fog.underwater": {}
+                }
             ]
-          }
+        },
+        "terrain_blend_far:terrain_blend": {
+            "+defines": [
+                "S_FAR"
+            ]
+        },
+        "terrain_blend_no_culling:terrain_blend": {
+            "+states": [
+                "DisableCulling"
+            ]
+        },
+        "terrain_doubleside:terrain_base": {},
+        "terrain_alpha_single_side:terrain_base": {
+            "+defines": [
+                "ALPHA_TEST"
+            ],
+            "+states": [
+                "EnableAlphaToCoverage"
+            ]
+        },
+        "terrain_alpha_seasons:terrain_base": {
+            "+defines": [
+                "ALPHA_TEST",
+                "SEASONS"
+            ],
+            "+states": [
+                "EnableCulling",
+                "EnableAlphaToCoverage"
+            ],
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "TexelAA"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureFilter": "Bilinear"
+                },
+                {
+                    "samplerIndex": 2,
+                    "textureFilter": "Point"
+                }
+            ]
+        },
+        "terrain_alpha:terrain_alpha_single_side": {
+            "+states": [
+                "DisableCulling"
+            ],
+            // z-fighting fix
+            "depthBias": 0.0,
+            "slopeScaledDepthBias": 0.5,
+            "depthBiasOGL": 0.0,
+            "slopeScaledDepthBiasOGL": 0.5
+        },
+        "terrain_far:terrain_base": {
+            "+defines": [
+                "ALPHA_TEST",
+                "S_FAR"
+                //"FUCK"
+            ]
+        },
+        "terrain_seasons_far:terrain_opaque_seasons": {
+            "+defines": [
+                "ALPHA_TEST",
+                "S_FAR"
+            ]
+        },
+        "terrain_seasons_far_alpha:terrain_opaque_seasons": {
+            "+defines": [
+                "ALPHA_TEST",
+                "SEASONS_FAR",
+                "S_FAR"
+            ],
+            "+states": [
+                "EnableCulling",
+                "EnableAlphaToCoverage"
+            ]
+        },
+        "terrain_inside_block": {
+            "depthFunc": "Always",
+            "vertexShader": "shaders/renderchunk.vertex",
+            "vrGeometryShader": "shaders/renderchunk.geometry",
+            "geometryShader": "shaders/renderchunk.geometry",
+            "fragmentShader": "shaders/renderchunk.fragment",
+            "vertexFields": [
+                {
+                    "field": "Position"
+                },
+                {
+                    "field": "UV1"
+                },
+                {
+                    "field": "Color"
+                },
+                {
+                    "field": "UV0"
+                }
+            ],
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "TexelAA"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureFilter": "Bilinear"
+                },
+                {
+                    "samplerIndex": 3,
+                    "textureFilter": "Point"
+                },
+                {
+                    "samplerIndex": 4,
+                    "textureFilter": "Point"
+                }
+            ],
+            "msaaSupport": "Both"
         }
-      ]
-    },
-    "terrain_opaque_seasons:terrain_base": {
-      "+defines": [
-        "SEASONS"
-      ],
-      "+samplerStates": [
-        {
-          "samplerIndex": 0,
-          "textureFilter": "TexelAA"
-        },
-        {
-          "samplerIndex": 1,
-          "textureFilter": "Bilinear"
-        },
-        {
-          "samplerIndex": 2,
-          "textureFilter": "Point"
-        }
-      ]
-    },
-    "terrain_blend:terrain_base": {
-      "+defines": [
-        "BLEND"
-      ],
-      "depthFunc": "LessEqual",
-      "+states": [
-        "Blending"
-      ],
-      "+variants": [
-        {
-          "underwater": {}
-        },
-        {
-          "fog.underwater": {}
-        }
-      ]
-    },
-    "terrain_blend_far:terrain_blend": {
-      "+defines": [
-        "S_FAR"
-      ]
-    },
-    "terrain_blend_no_culling:terrain_blend": {
-      "+states": [
-        "DisableCulling"
-      ]
-    },
-    "terrain_doubleside:terrain_base": {},
-    "terrain_alpha_single_side:terrain_base": {
-      "+defines": [
-        "ALPHA_TEST"
-      ],
-      "+states": [
-        "EnableAlphaToCoverage"
-      ]
-    },
-    "terrain_alpha_seasons:terrain_base": {
-      "+defines": [
-        "ALPHA_TEST",
-        "SEASONS"
-      ],
-      "+states": [
-        "EnableCulling",
-        "EnableAlphaToCoverage"
-      ],
-      "+samplerStates": [
-        {
-          "samplerIndex": 0,
-          "textureFilter": "TexelAA"
-        },
-        {
-          "samplerIndex": 1,
-          "textureFilter": "Bilinear"
-        },
-        {
-          "samplerIndex": 2,
-          "textureFilter": "Point"
-        }
-      ]
-    },
-    "terrain_alpha:terrain_alpha_single_side": {
-      "+states": [
-        "DisableCulling"
-      ],
-      // z-fighting fix
-      "depthBias": 0.0,
-      "slopeScaledDepthBias": 0.5,
-      "depthBiasOGL": 0.0,
-      "slopeScaledDepthBiasOGL": 0.5
-    },
-    "terrain_far:terrain_base": {
-      "+defines": [
-        "ALPHA_TEST",
-        "S_FAR"
-        //"FUCK"
-      ]
-    },
-    "terrain_seasons_far:terrain_opaque_seasons": {
-      "+defines": [
-        "ALPHA_TEST",
-        "S_FAR"
-      ]
-    },
-    "terrain_seasons_far_alpha:terrain_opaque_seasons": {
-      "+defines": [
-        "ALPHA_TEST",
-        "SEASONS_FAR",
-        "S_FAR"
-      ],
-      "+states": [
-        "EnableCulling",
-        "EnableAlphaToCoverage"
-      ]
-    },
-    "terrain_inside_block": {
-      "depthFunc": "Always",
-      "vertexShader": "shaders/renderchunk.vertex",
-      "vrGeometryShader": "shaders/renderchunk.geometry",
-      "geometryShader": "shaders/renderchunk.geometry",
-      "fragmentShader": "shaders/renderchunk.fragment",
-      "vertexFields": [
-        {
-          "field": "Position"
-        },
-        {
-          "field": "UV1"
-        },
-        {
-          "field": "Color"
-        },
-        {
-          "field": "UV0"
-        }
-      ],
-      "+samplerStates": [
-        {
-          "samplerIndex": 0,
-          "textureFilter": "TexelAA"
-        },
-        {
-          "samplerIndex": 1,
-          "textureFilter": "Bilinear"
-        },
-        {
-          "samplerIndex": 3,
-          "textureFilter": "Point"
-        },
-        {
-          "samplerIndex": 4,
-          "textureFilter": "Point"
-        }
-      ],
-      "msaaSupport": "Both"
     }
-  }
 }

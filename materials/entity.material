@@ -17,15 +17,15 @@
                     "field": "UV0"
                 }
             ],
-           //  "depthFunc": "Always",
+            //  "depthFunc": "Always",
             "variants": [
                 {
                     "skinning": {
                         "+defines": [
-                            "USE_SKINNING"
-                            ,"IS_CHEST"
+                            "USE_SKINNING",
+                            "IS_CHEST"
                         ],
-                       // "depthFunc": "LessEqual",
+                        // "depthFunc": "LessEqual",
                         "vertexFields": [
                             {
                                 "field": "Position"
@@ -94,7 +94,7 @@
                 }
             ]
         },
-        "entity_loyalty_rope:entity_glint": {             
+        "entity_loyalty_rope:entity_glint": {
             "+defines": [
                 "DISABLE_CULLING"
             ],
@@ -255,7 +255,7 @@
                 }
             ]
         },
-        "entity_nocull:entity": {            
+        "entity_nocull:entity": {
             "+defines": [
                 "DISABLE_CULLING"
             ],
@@ -818,7 +818,7 @@
                 }
             ]
         },
-        "beacon_beam_transparent:entity": {            
+        "beacon_beam_transparent:entity": {
             "+defines": [
                 "DISABLE_CULLING"
             ],
@@ -948,7 +948,8 @@
             "+states": [
                 "Blending",
                 "DisableCulling"
-            ],            "+defines": [
+            ],
+            "+defines": [
                 "DISABLE_CULLING"
             ]
         },
@@ -1070,7 +1071,7 @@
         "moving_block_alpha:moving_block_alpha_single_side": {
             "+states": [
                 "DisableCulling"
-            ],            
+            ],
             "+defines": [
                 "DISABLE_CULLING"
             ],
@@ -1080,7 +1081,7 @@
             "depthBiasOGL": 0.5,
             "slopeScaledDepthBiasOGL": 0.5
         },
-        "moving_block_double_side:moving_block": {            
+        "moving_block_double_side:moving_block": {
             "+defines": [
                 "DISABLE_CULLING"
             ],
@@ -1246,8 +1247,7 @@
         "armor_leather:entity_alphatest_change_color": {},
         "armor_enchanted:entity_alphatest_glint": {},
         "armor_leather_enchanted:entity_alphatest_change_color_glint": {},
-        "armor_stand:entity_alphatest": {
-        },
+        "armor_stand:entity_alphatest": {},
         "ghost_blocks:entity_alphablend": {
             "+states": [
                 "EnableAlphaWrite"
@@ -1266,21 +1266,26 @@
         "boat:entity": {},
         "chalkboard:entity": {},
         "chest:entity": {
-                        "+defines": [
-                            "IS_CHEST"
-                        ]},
+            "+defines": [
+                "IS_CHEST"
+            ]
+        },
         "chicken:entity": {},
         "chicken_legs:entity_alphatest": {},
         "cow:entity": {},
         "creeper:entity": {},
         "dragon_head:entity_alphatest": {
             "+defines": [
-                "IS_HEAD"
-            ]},
+                "IS_HEAD",
+                "IS_DDDHEAD"
+            ]
+        },
         "dragon_head_glint:entity_glint": {
             "+defines": [
-                "IS_HEAD"
-            ]},
+                "IS_HEAD",
+                "IS_DDDHEAD"
+            ]
+        },
         "drowned:entity_emissive_alpha": {},
         "egg:entity_alphatest": {},
         "elytra:entity_alphatest": {},
@@ -1333,11 +1338,13 @@
         "mob_head:entity_alphatest": {
             "+defines": [
                 "IS_HEAD"
-            ]},
+            ]
+        },
         "mob_head_glint:entity_glint": {
             "+defines": [
                 "IS_HEAD"
-            ]},
+            ]
+        },
         "mooshroom:entity": {},
         "mooshroom_mushrooms:entity_alphatest": {},
         "npc:entity_alphatest": {},
@@ -1370,7 +1377,8 @@
         "shulker_box:entity_alphatest": {
             "+defines": [
                 "IS_SHULKER_BOX"
-            ]},
+            ]
+        },
         "shulker_bullet:entity_alphatest": {},
         "sign:entity_static": {},
         "silverfish:entity": {},
