@@ -55,8 +55,9 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
     float3x3 TBN = float3x3(PSInput.tangent, PSInput.bitangent, PSInput.normal);
     float3x3 inverseTBN = transpose(TBN);
 
+
 #if USE_TEXEL_AA
-#if defined(BLEND)
+#if 0
     float4 diffuse = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
 #else
     float3 sum=float3(0,0,0);
