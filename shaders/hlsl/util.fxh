@@ -254,16 +254,10 @@ float4 texture2Dlod_AA(in Texture2D source, in sampler bilinearSampler, in float
 	const float2 fractionalTexel = frac(originalUV * (TEXTURE_DIMENSIONS.xy/el));
 	const float2 adjustedFractionalTexel = clamp(fractionalTexel * adjustmentScalar, 0.0f, 0.5f) + clamp(fractionalTexel * adjustmentScalar - (adjustmentScalar - 0.5f), 0.0f, 0.5f);
 
-	const float samplingMode = smoothstep(TEXEL_AA_LOD_RELAXED_ALPHA, TEXEL_AA_LOD_CONSERVATIVE_ALPHA, lod);
-
 	const float2 adjustedUV = (adjustedFractionalTexel + floor(originalUV * (TEXTURE_DIMENSIONS.xy/el))) / (TEXTURE_DIMENSIONS.xy/el);
-	const float4 blendedSample = source.SampleLevel(bilinearSampler, lerp(originalUV, adjustedUV, samplingMode),lod);
+	const float4 blendedSample = source.SampleLevel(bilinearSampler, adjustedUV,lod);
 
-	#if USE_ALPHA_TEST
-		return float4(blendedSample.rgb, lerp(blendedSample.a, smoothstep(1.0f/2.0f, 1.0f, blendedSample.a), samplingMode));
-	#else
 		return blendedSample;
-	#endif
 }
 
 #endif // USE_TEXEL_AA

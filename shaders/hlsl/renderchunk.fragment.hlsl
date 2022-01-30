@@ -56,19 +56,45 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
     float3x3 inverseTBN = transpose(TBN);
 
 #if USE_TEXEL_AA
+#if defined(BLEND)
     float4 diffuse = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
+#else
+    float3 sum=float3(0,0,0);
+    float weight=0;
+    float2 uv0dx = ddx(PSInput.uv0);
+    float2 uv0dy = ddy(PSInput.uv0);
+     for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)
+         for (int uv0j = 0; uv0j < TEXTURE_MSAA; uv0j++){
+             float2 luv0 =
+                 fmod(frac(PSInput.uv0 + uv0dx * uv0i / (float)(TEXTURE_MSAA) + uv0dy * uv0j / (float)(TEXTURE_MSAA)-PSInput.uvm.xy),PSInput.uvm.zw);
+        float4 tmpcolor=texture2Dlod_AA(TEXTURE_0, TextureSampler0,luv0+PSInput.uvm.xy,0);
+        weight+=tmpcolor.a;
+        sum+=tmpcolor.a*pow(tmpcolor.rgb,2.2);
+    }
+    float4 diffuse = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));//texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
+#endif
 #else
     float4 diffuse = TEXTURE_0.Sample(TextureSampler0, PSInput.uv0);
 #endif
 
-    if (PSInput.ismap < 0.5) {
+#if USE_ALPHA_TEST
+	#ifdef ALPHA_TO_COVERAGE
+		#define ALPHA_THRESHOLD 0.05
+	#else
+		#define ALPHA_THRESHOLD 0.5
+	#endif
+	if(diffuse.a < ALPHA_THRESHOLD)
+		discard;
+#endif
+
+/* if (PSInput.ismap < 0.5) {
 // alpha test bug fixed
 #if USE_ALPHA_TEST
-#ifdef ALPHA_TO_COVERAGE
-#define ALPHA_THRESHOLD 0.05
-#else
-#define ALPHA_THRESHOLD 0.5
-#endif
+	#ifdef ALPHA_TO_COVERAGE
+		#define ALPHA_THRESHOLD 0.05
+	#else
+		#define ALPHA_THRESHOLD 0.5
+	#endif
 #if USE_TEXEL_AA
 
         float2 originalUV = PSInput.uv0;
@@ -119,7 +145,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
         }
 #endif
 #endif
-    }
+    }*/
 #if defined(BLEND)
     diffuse.a *= PSInput.color.a;
 #endif
@@ -168,7 +194,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
           (cp.z < lineb.z + chw.z || cp.z > 1.0 - lineb.z - chw.z)) ||
          ((cp.y < lineb.y + chw.y || cp.y > 1.0 - lineb.y - chw.y) &&
           (cp.z < lineb.z + chw.z || cp.z > 1.0 - lineb.z - chw.z))))
-        ckk = SQUARED_CHUNK_BOARD_MSAA;
+        ckk = CHUNK_BOARD_MSAA;
     int l1 = 0;
     int l2 = 0;
     int lrrr = 0;
