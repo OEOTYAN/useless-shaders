@@ -141,7 +141,11 @@ void main(in VS_Input VSInput, out PS_Input PSInput) {
 	PSInput.alphaTestMultiplier = OVERLAY_COLOR.aaaa;
 #endif
 
+#ifndef ALWAYS_LIT
 	PSInput.light = float4(L.xxx * TILE_LIGHT_COLOR.rgb, 1.0);
+#else
+	PSInput.light = float4(L.xxx, 1.0);
+#endif
 
 #ifdef COLOR_BASED
 	PSInput.color = VSInput.color;

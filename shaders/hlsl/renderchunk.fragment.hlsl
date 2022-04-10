@@ -11,9 +11,9 @@ struct PS_Input {
     float ismap : ismap;
 #ifndef BYPASS_PIXEL_SHADER
     lpfloat4 color : COLOR;
-    snorm float4 uvm : uvm;
-    snorm float2 uv0 : TEXCOORD_0_FB_MSAA;
-    snorm float2 uv1 : TEXCOORD_1_FB_MSAA;
+     float4 uvm : uvm;
+     float2 uv0 : TEXCOORD_0_FB_MSAA;
+     float2 uv1 : TEXCOORD_1_FB_MSAA;
 #endif
 
 #ifdef FOG
@@ -38,6 +38,15 @@ float lightIntensity(const float3 normal) {
            AMBIENT;
 }
 
+float InterleavedGradientNoise( float2 uv, float FrameId )
+{
+	// magic values are found by experimentation
+	uv += FrameId * (float2(47, 17) * 0.695f);
+
+    const float3 magic = float3( 0.06711056f, 0.00583715f, 52.9829189f );
+    return frac(magic.z * frac(dot(uv, magic.xy)));
+}
+
 ROOT_SIGNATURE
 
 void main(in PS_Input PSInput, out PS_Output PSOutput) {
@@ -52,30 +61,41 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
     return;
 #else
 
-    float3x3 TBN = float3x3(PSInput.tangent, PSInput.bitangent, PSInput.normal);
-    float3x3 inverseTBN = transpose(TBN);
+    // float3x3 TBN = float3x3(PSInput.tangent, PSInput.bitangent, PSInput.normal);
+    // float3x3 inverseTBN = transpose(TBN);
 
-
+    float2 uv0dx = ddx(PSInput.uv0);
+    float2 uv0dy = ddy(PSInput.uv0);
+    float2 rands;
+    rands.x=InterleavedGradientNoise(PSInput.position.xy,TIME);
+    rands.y=InterleavedGradientNoise(PSInput.position.xy,TIME+5371.5371);
+    rands*=1.01;
 #if USE_TEXEL_AA
 #if 0
-    float4 diffuse = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
+    float4 diffuse =texture2Dlod_AA(TEXTURE_0, TextureSampler0,PSInput.uv0,0);//texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
 #else
     float3 sum=float3(0,0,0);
     float weight=0;
-    float2 uv0dx = ddx(PSInput.uv0);
-    float2 uv0dy = ddy(PSInput.uv0);
      for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)
          for (int uv0j = 0; uv0j < TEXTURE_MSAA; uv0j++){
+             float2 iter;
+             iter.x=(uv0i+rands.x) / (float)(TEXTURE_MSAA);
+             iter.y=(uv0j+rands.y) / (float)(TEXTURE_MSAA);
              float2 luv0 =
-                 fmod(frac(PSInput.uv0 + uv0dx * uv0i / (float)(TEXTURE_MSAA) + uv0dy * uv0j / (float)(TEXTURE_MSAA)-PSInput.uvm.xy),PSInput.uvm.zw);
+                 PSInput.uvm.zw*ftri((PSInput.uv0 + uv0dx *iter.x  + uv0dy * iter.y-PSInput.uvm.xy)/PSInput.uvm.zw);
         float4 tmpcolor=texture2Dlod_AA(TEXTURE_0, TextureSampler0,luv0+PSInput.uvm.xy,0);
+
         weight+=tmpcolor.a;
+// #if USE_ALPHA_TEST
+        // sum+=pow(tmpcolor.rgb,2.2);
+	// #else
         sum+=tmpcolor.a*pow(tmpcolor.rgb,2.2);
+	// #endif
     }
     float4 diffuse = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));//texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
 #endif
 #else
-    float4 diffuse = TEXTURE_0.Sample(TextureSampler0, PSInput.uv0);
+    float4 diffuse = TEXTURE_0.SampleLevel(TextureSampler0,PSInput.uvm.xy+PSInput.uvm.zw*ftri((PSInput.uv0-PSInput.uvm.xy+uv0dx*rands.x+uv0dy*rands.y)/PSInput.uvm.zw),0);
 #endif
 
 #if USE_ALPHA_TEST
@@ -84,8 +104,15 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
 	#else
 		#define ALPHA_THRESHOLD 0.5
 	#endif
-	if(diffuse.a < ALPHA_THRESHOLD)
+	if(diffuse.a< ALPHA_THRESHOLD)
 		discard;
+    //if((diffuse.a-abs(ddx(diffuse.a))< ALPHA_THRESHOLD)||(diffuse.a-abs(ddy(diffuse.a))< ALPHA_THRESHOLD)){
+     //alpha test edge
+     
+        //if(texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0).a< ALPHA_THRESHOLD)
+		//discard;
+        //diffuse.rgb=1;
+   // }
 #endif
 
 /* if (PSInput.ismap < 0.5) {
@@ -147,13 +174,19 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
 #endif
 #endif
     }*/
+
 #if defined(BLEND)
     diffuse.a *= PSInput.color.a;
 #endif
 
+
 #if !defined(ALWAYS_LIT)
+float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
     diffuse = diffuse * TEXTURE_1.Sample(TextureSampler1, PSInput.uv1);
+    #else 
+    float3 mlight=1.0;
 #endif
+
     float iswater = 0.0;
 #ifndef SEASONS
 #if !USE_ALPHA_TEST && !defined(BLEND)
@@ -282,7 +315,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.35 && cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 244.0 / 255.0 - 0.001 &&
@@ -303,7 +336,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.55 && cp.z >= 0.45)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 234.0 / 255.0 - 0.001 &&
@@ -325,7 +358,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 224.0 / 255.0 - 0.001 &&
@@ -346,7 +379,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 214.0 / 255.0 - 0.001 &&
@@ -365,7 +398,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.4 && cp.x >= 0.3 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 204.0 / 255.0 - 0.001 &&
@@ -385,7 +418,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.35 && cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 193.0 / 255.0 - 0.001 &&
@@ -408,7 +441,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 183.0 / 255.0 - 0.001 &&
@@ -431,7 +464,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 173.0 / 255.0 - 0.001 &&
@@ -450,7 +483,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.55)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 163.0 / 255.0 - 0.001 &&
@@ -473,7 +506,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 153.0 / 255.0 - 0.001 &&
@@ -496,7 +529,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 142.0 / 255.0 - 0.001 &&
@@ -515,7 +548,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.45)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 132.0 / 255.0 - 0.001 &&
@@ -536,7 +569,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 122.0 / 255.0 - 0.001 &&
@@ -559,7 +592,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 112.0 / 255.0 - 0.001 &&
@@ -578,7 +611,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.65)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         } else if (PSInput.color.r > 76.0 / 255.0 - 0.001 &&
@@ -596,7 +629,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
                  cp.z >= 0.25)) {
                 diffuse.rgb =
                     float3(1.0f, 1.0f, 1.0f) *
-                    TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
+                mlight;
             }
             isRedstoneDust = true;
         }

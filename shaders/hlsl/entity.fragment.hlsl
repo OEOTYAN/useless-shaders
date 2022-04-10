@@ -42,6 +42,9 @@ struct PS_Input {
     float4 alphaTestMultiplier : ALPHA_MULTIPLIER;
 #endif
 
+    #ifndef UI_ENTITY
+     float4 uvm : uvm;
+     #endif
     float2 uv : TEXCOORD_0_FB_MSAA;
 };
 
@@ -120,6 +123,14 @@ float2 LineBoxIntersect(float3 RayOrigin,
     return saturate(BoxIntersections);
 }
 
+float InterleavedGradientNoise( float2 uv, float FrameId )
+{
+	// magic values are found by experimentation
+	uv += FrameId * (float2(47, 17) * 0.695f);
+
+    const float3 magic = float3( 0.06711056f, 0.00583715f, 52.9829189f );
+    return frac(magic.z * frac(dot(uv, magic.xy)));
+}
 ROOT_SIGNATURE
 void main(in PS_Input PSInput, out PS_Output PSOutput) {
 #ifdef ENABLE_OUTLINE
@@ -144,13 +155,53 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
     float4 color = float4(1.0f, 1.0f, 1.0f, 1.0f);
 
 #if (!defined(NO_TEXTURE) || !defined(COLOR_BASED) || defined(USE_COLOR_BLEND))
+    #ifndef UI_ENTITY
+    float2 uv0dx = ddx(PSInput.uv);
+    float2 uv0dy = ddy(PSInput.uv);
+    float2 rands;
+    rands.x=InterleavedGradientNoise(PSInput.position.xy,TIME);
+    rands.y=InterleavedGradientNoise(-PSInput.position.xy,TIME+5371.5371);
+    rands*=1.01;
 
 #if !defined(TEXEL_AA) || !defined(TEXEL_AA_FEATURE) || \
     (VERSION < 0xa000 /*D3D_FEATURE_LEVEL_10_0*/)
-    color = TEXTURE_0.Sample(TextureSampler0, PSInput.uv);
+    color = TEXTURE_0.SampleLevel(TextureSampler0,PSInput.uvm.xy+PSInput.uvm.zw*ftri((PSInput.uv-PSInput.uvm.xy+uv0dx*rands.x+uv0dy*rands.y)/PSInput.uvm.zw),0);
 #else
+#if 0
+    color = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv);
+#else
+
+    float3 sum=float3(0,0,0);
+    float weight=0;
+     for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)
+         for (int uv0j = 0; uv0j < TEXTURE_MSAA; uv0j++){
+             float2 iter;
+             iter.x=(uv0i+rands.x) / (float)(TEXTURE_MSAA);
+             iter.y=(uv0j+rands.y) / (float)(TEXTURE_MSAA);
+             float2 luv0 =
+                 PSInput.uvm.zw*ftri((PSInput.uv + uv0dx *iter.x  + uv0dy * iter.y-PSInput.uvm.xy)/PSInput.uvm.zw);
+        float4 tmpcolor=texture2Dlod_AA(TEXTURE_0, TextureSampler0,luv0+PSInput.uvm.xy,0);
+
+        weight+=tmpcolor.a;
+// #if USE_ALPHA_TEST
+        // sum+=pow(tmpcolor.rgb,2.2);
+	// #else
+        sum+=tmpcolor.a*pow(tmpcolor.rgb,2.2);
+	// #endif
+    }
+    color = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));
+
+#endif
+#endif
+#else
+#if !defined(TEXEL_AA) || !defined(TEXEL_AA_FEATURE) || \
+    (VERSION < 0xa000 /*D3D_FEATURE_LEVEL_10_0*/)
+color = TEXTURE_0.Sample(TextureSampler0,PSInput.uv);
+    #else
     color = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv);
 #endif
+#endif
+
 
 #ifdef MASKED_MULTITEXTURE
     float4 tex1 = TEXTURE_1.Sample(TextureSampler1, PSInput.uv);

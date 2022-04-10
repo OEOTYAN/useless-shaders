@@ -277,6 +277,22 @@ float MakeDepthLinear(float z, float n, float f, bool scaleZ)
 
 #define TangentBias(X) (X * 2.0f - 1.0f)
 
+float ftri( float x)
+{
+    return abs(frac(0.5*(x-1.0))*2.0-1.0);
+}
+float2 ftri( float2 x)
+{
+    return abs(frac(0.5*(x-1.0))*2.0-1.0);
+}
+float3 ftri( float3 x)
+{
+    return abs(frac(0.5*(x-1.0))*2.0-1.0);
+}
+float4 ftri( float4 x)
+{
+    return abs(frac(0.5*(x-1.0))*2.0-1.0);
+}
 float Square( float x )
 {
 	return x*x;

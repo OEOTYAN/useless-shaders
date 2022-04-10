@@ -23,6 +23,7 @@
                     "skinning": {
                         "+defines": [
                             "USE_SKINNING",
+                            "TEXEL_AA",
                             "IS_CHEST"
                         ],
                         // "depthFunc": "LessEqual",
@@ -1182,6 +1183,7 @@
             ],
             "vertexShader": "shaders/banner.vertex",
             "vrGeometryShader": "shaders/banner.geometry",
+            "geometryShader": "shaders/banner.geometry",
             "fragmentShader": "shaders/banner.fragment",
             "depthFunc": "LessEqual",
             "+states": [

@@ -99,6 +99,9 @@
             "+defines": [
                 "SEASONS"
             ],
+            "+states": [
+                "EnableAlphaToCoverage"
+            ],
             "+samplerStates": [
                 {
                     "samplerIndex": 0,
@@ -141,14 +144,22 @@
                 "DisableCulling"
             ]
         },
-        "terrain_doubleside:terrain_base": {},
+        "terrain_doubleside:terrain_base": {
+            "+states": [
+                "EnableAlphaToCoverage"
+            ]
+        },
         "terrain_alpha_single_side:terrain_base": {
             "+defines": [
                 "ALPHA_TEST"
             ],
             "+states": [
                 "EnableAlphaToCoverage"
-            ]
+            ],
+            "depthBias": 0.0,
+            "slopeScaledDepthBias": 0.5,
+            "depthBiasOGL": 0.0,
+            "slopeScaledDepthBiasOGL": 0.5
         },
         "terrain_alpha_seasons:terrain_base": {
             "+defines": [

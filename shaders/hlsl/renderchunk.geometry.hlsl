@@ -7,8 +7,8 @@ struct GeometryShaderInput {
     float3 chunkPos : chunkPos;
 #ifndef BYPASS_PIXEL_SHADER
     lpfloat4 color : COLOR;
-    snorm float2 uv0 : TEXCOORD_0;
-    snorm float2 uv1 : TEXCOORD_1;
+     float2 uv0 : TEXCOORD_0;
+     float2 uv1 : TEXCOORD_1;
 #endif
 #ifdef NEAR_WATER
     float cameraDist : TEXCOORD_2;
@@ -32,9 +32,9 @@ struct GeometryShaderOutput {
     float ismap : ismap;
 #ifndef BYPASS_PIXEL_SHADER
     lpfloat4 color : COLOR;
-    snorm float4 uvm : uvm;
-    snorm float2 uv0 : TEXCOORD_0;
-    snorm float2 uv1 : TEXCOORD_1;
+     float4 uvm : uvm;
+     float2 uv0 : TEXCOORD_0;
+     float2 uv1 : TEXCOORD_1;
 #endif
 #ifdef NEAR_WATER
     float cameraDist : TEXCOORD_2;
@@ -57,6 +57,19 @@ struct GeometryShaderOutput {
     float3 normal =
         normalize(cross(input[2].worldPos.xyz - input[1].worldPos.xyz,
                         input[0].worldPos.xyz - input[1].worldPos.xyz));
+
+    float3 maxpos= max(input[0].chunkPos.xyz,max(input[1].chunkPos.xyz, input[2].chunkPos.xyz));
+    float3 minpos=min(input[0].chunkPos.xyz,min(input[1].chunkPos.xyz, input[2].chunkPos.xyz));
+    float3 aabb=maxpos-minpos;
+    float3 center=minpos+aabb*0.5;
+    bool3 isc=abs(frac(center)-0.5)<0.01;
+    bool is_ore=false;
+
+ if((abs(frac(center.y)-0.5)<0.38)&&(isc.x+isc.y+isc.z>1.5)&&
+ abs(dot(abs(aabb-float3(1,0.75,1)),float3(1.0,1.0,1.0))-1)<0.01&&
+ ((input[1].uv1.x+input[1].uv1.y<0.01)/*||(input[1].uv1.x>0.9375)*/)){
+ is_ore=true;
+ }
 
 #ifndef BYPASS_PIXEL_SHADER
     float2 minuv = min(input[0].uv0, min(input[1].uv0, input[2].uv0));
@@ -87,20 +100,6 @@ struct GeometryShaderOutput {
             output.normal = normal;
             output.bitangent = bitangent;
             output.pos = input[j].pos;
-#ifdef ALLOW_FADE
-            float3 ppppos = input[j].chunkPos;
-#ifdef ENABLE_CHUNK_LOADING_ANIMATION
-            ppppos.y += (12.0 * Pow2(cos(3.141592653589793f *
-                                         (0.5 - RENDER_CHUNK_FOG_ALPHA))) +
-                         128.0 * (RENDER_CHUNK_FOG_ALPHA +
-                                  log(1.0 - RENDER_CHUNK_FOG_ALPHA)));
-#endif
-            output.pos =
-                mul(WORLDVIEW, float4((ppppos.xyz * CHUNK_ORIGIN_AND_SCALE.w) +
-                                          CHUNK_ORIGIN_AND_SCALE.xyz,
-                                      1));
-            output.pos = mul(PROJ, output.pos);
-#endif
             output.worldPos = input[j].worldPos;
             output.chunkPos = input[j].chunkPos;
 #ifndef BYPASS_PIXEL_SHADER
@@ -120,6 +119,49 @@ struct GeometryShaderOutput {
 #ifdef FOG
             output.fogColor = input[j].fogColor;
 #endif
+
+           if(is_ore){
+                    float3 bias=output.chunkPos-center;
+                    bias=(abs(bias)-0.5)*sign(-bias);
+                    float tm=0.125;
+
+#ifndef FANCY
+if(false)
+#endif 
+    tm=0.123;
+                    output.pos=mul(WORLDVIEWPROJ, float4(output.worldPos+bias+normal*tm, 1));
+    float3x3 TBN = float3x3(output.tangent, output.bitangent,output.normal);
+    float3x3 inverseTBN = transpose(TBN);
+                    output.uv0+=mul(TBN,bias).xy*(maxuv-minuv)*4/3.0;
+#ifndef FANCY
+//if(length(input[1].worldPos.xyz)<64)
+                    output.pos.z = output.pos.z * 0.8;
+#endif 
+#ifndef BYPASS_PIXEL_SHADER
+            output.uv1 = float2(1.0,1.0);
+#endif
+            }
+            // else{
+            //    if(abs(dot(abs(aabb-float3(0.75,0.75,0.75)),float3(1.0,1.0,1.0))-0.75)<0.01){
+                //    output.pos.z=-1;
+            //    }
+            // }
+
+#ifdef ALLOW_FADE
+            float3 ppppos = input[j].chunkPos;
+#ifdef ENABLE_CHUNK_LOADING_ANIMATION
+            ppppos.y += (12.0 * Pow2(cos(3.141592653589793f *
+                                         (0.5 - RENDER_CHUNK_FOG_ALPHA))) +
+                         128.0 * (RENDER_CHUNK_FOG_ALPHA +
+                                  log(1.0 - RENDER_CHUNK_FOG_ALPHA)));
+#endif
+            output.pos =
+                mul(WORLDVIEW, float4((ppppos.xyz * CHUNK_ORIGIN_AND_SCALE.w) +
+                                          CHUNK_ORIGIN_AND_SCALE.xyz,
+                                      1));
+            output.pos = mul(PROJ, output.pos);
+#endif
+
             outStream.Append(output);
         }
     }
@@ -159,6 +201,7 @@ struct GeometryShaderOutput {
             float2 map = float2(viewPos.x / (RENDER_DISTANCE)*INV_ASPECT_RATIO,
                                 -viewPos.y / (RENDER_DISTANCE));
             //对三角形进行缩放，使其长宽比按照屏幕缩放，且大小随视距缩放。
+
             map /= 2;
             map.x += 0.7;
             map.y += 0.45;

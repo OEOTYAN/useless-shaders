@@ -74,6 +74,9 @@ struct GeometryShaderOutput {
     float4 alphaTestMultiplier : ALPHA_MULTIPLIER;
 #endif
 
+#ifndef UI_ENTITY
+     float4 uvm : uvm;
+     #endif
     float2 uv : TEXCOORD_0_FB_MSAA;
 #ifdef INSTANCEDSTEREO
     uint renTarget_id : SV_RenderTargetArrayIndex;
@@ -208,6 +211,9 @@ struct GeometryShaderOutput {
 #endif
 
 #ifndef NO_TEXTURE
+#ifndef UI_ENTITY
+            output.uvm = float4(uvzmin, uvzmax - uvzmin);
+            #endif
             output.uv = input[j].uv;
 #endif
 #ifdef INSTANCEDSTEREO
