@@ -40,183 +40,6 @@ float4 texture2D_AA(in Texture2D source, in sampler bilinearSampler, in float2 o
 	#endif
 }
 
-float4 texture2Dm_AA(in Texture2D source, in sampler bilinearSampler, in float2 originalUV,in float4 uvm) {
-/*
-	const float2 dUV_dX = ddx(originalUV) * TEXTURE_DIMENSIONS.xy;
-	const float2 dUV_dY = ddy(originalUV) * TEXTURE_DIMENSIONS.xy;
-
-
-    float APrime = dUV_dX.y * dUV_dX.y + dUV_dY.y * dUV_dY.y;
-    float BPrime = -2 * (dUV_dX.x * dUV_dX.y + dUV_dY.x * dUV_dY.y);
-    float CPrime = dUV_dX.x * dUV_dX.x + dUV_dY.x * dUV_dY.x;
-    float t = (dUV_dX.x * dUV_dY.y - dUV_dY.x * dUV_dX.y);
-    float F = 1 / (t * t);
-    APrime *= F;
-    BPrime *= F;
-    CPrime *= F;
-    float theta = atan(BPrime / (APrime - CPrime)) * 0.5;
-    float costheta = cos(theta);
-    float sintheta = sin(theta);
-    float det = (APrime - CPrime) * (APrime - CPrime) + BPrime * BPrime;
-    float A = 0.5 * (APrime + CPrime - sqrt(det));
-    float C = 0.5 * (APrime + CPrime + sqrt(det));
-    float a = 1 / sqrt(A); 
-    float b = 1 / sqrt(C); 
-    float x = max(a * costheta, b * sintheta);
-    float y = max(a * sintheta, b * costheta);
-
-	const float2 delU = float2(dUV_dX.x, dUV_dY.x);
-	const float2 delV = float2(dUV_dX.y, dUV_dY.y);
-	const float2 adjustmentScalar = max(1.0f / float2(length(delU), length(delV)), 1.0f);
-	const float2 fractionalTexel = frac(originalUV * TEXTURE_DIMENSIONS.xy);
-	const float2 adjustedFractionalTexel = clamp(fractionalTexel * adjustmentScalar, 0.0f, 0.5f) + clamp(fractionalTexel * adjustmentScalar - (adjustmentScalar - 0.5f), 0.0f, 0.5f);
-
-float4 blendedSample=0;
-const float stps=3;
-float stepX=x/2.0;//x>stps?x/stps?1;
-float stepY=y/2.0;//y>stps?y/stps?1;
-    float sumWeights = 0;
-for(float i=-x;i<=x;i+=stepX)
-for(float j=-y;j<=y;j+=stepY){
-        float sbb =i/TEXTURE_DIMENSIONS.x;
-	    float tbb =j/TEXTURE_DIMENSIONS.y;
-	    float r2 = APrime * sbb * sbb + BPrime * sbb * tbb + CPrime * tbb * tbb;
-	    if (r2 < 1)
-{
-    float weight=1;
-	float2 adjustedUV = (adjustedFractionalTexel + floor(originalUV * TEXTURE_DIMENSIONS.xy)) / TEXTURE_DIMENSIONS.xy;
-
-		blendedSample+=weight*source.SampleLevel(bilinearSampler, fmod(float2(i,j)/ TEXTURE_DIMENSIONS.xy+adjustedUV-uvm.xy+bias,uvm.zw)+uvm.xy,0);
-	//#endif
-    sumWeights+=weight;
-}
-}
-		return blendedSample/sumWeights;
-*/
-/*
-	const float2 dUV_dX = ddx(originalUV);
-	const float2 dUV_dY = ddy(originalUV);
-
-    float APrime = dUV_dX.y * dUV_dX.y + dUV_dY.y * dUV_dY.y;
-    float BPrime = -2 * (dUV_dX.x * dUV_dX.y + dUV_dY.x * dUV_dY.y);
-    float CPrime = dUV_dX.x * dUV_dX.x + dUV_dY.x * dUV_dY.x;
-    float t = (dUV_dX.x * dUV_dY.y - dUV_dY.x * dUV_dX.y);
-    float F = 1 / (t * t);
-    APrime *= F;
-    BPrime *= F;
-    CPrime *= F;
-    float theta = atan(BPrime / (APrime - CPrime)) * 0.5;
-    float costheta = cos(theta);
-    float sintheta = sin(theta);
-    float det = (APrime - CPrime) * (APrime - CPrime) + BPrime * BPrime;
-    float A = 0.5 * (APrime + CPrime - sqrt(det));
-    float C = 0.5 * (APrime + CPrime + sqrt(det));
-    float a = 1 / sqrt(A); 
-    float b = 1 / sqrt(C); 
-    float x = max(a * costheta, b * sintheta);
-    float y = max(a * sintheta, b * costheta);
-
-	const float2 delU = float2(dUV_dX.x, dUV_dY.x)* TEXTURE_DIMENSIONS.xy;
-	const float2 delV = float2(dUV_dX.y, dUV_dY.y)* TEXTURE_DIMENSIONS.xy;
-	const float2 adjustmentScalar = max(1.0f / float2(length(delU), length(delV)), 1.0f);
-
-	const float2 fractionalTexel = frac(originalUV * TEXTURE_DIMENSIONS.xy);
-	const float2 adjustedFractionalTexel = clamp(fractionalTexel * adjustmentScalar, 0.0f, 0.5f) + clamp(fractionalTexel * adjustmentScalar - (adjustmentScalar - 0.5f), 0.0f, 0.5f);
-
-float4 blendedSample=0;
-
-//const float stps=3;
-const float stepX=x/4.0;//x>stps?x/stps?1;
-const float stepY=y/4.0;//y>stps?y/stps?1;
-    float sumWeights = 0;
-for(float i=-x;i<=x;i+=stepX)
-for(float j=-y;j<=y;j+=stepY){
-        float sbb =i;
-	    float tbb =j;
-	    float r2 = APrime * sbb * sbb + BPrime * sbb * tbb + CPrime * tbb * tbb;
-	    if (r2<10){
-    float weight=exp(r2);
-	float2 adjustedUV = (adjustedFractionalTexel + floor(originalUV * TEXTURE_DIMENSIONS.xy)) / TEXTURE_DIMENSIONS.xy;
-
-		blendedSample+=weight*source.SampleLevel(bilinearSampler, fmod(float2(i,j)+adjustedUV-uvm.xy,uvm.zw)+uvm.xy,0);
-
-    sumWeights+=weight;
-}
-}
-		return blendedSample/sumWeights;
-*/
-/*
-	const float lod = log2(sqrt(max(dot(dUV_dX, dUV_dX), dot(dUV_dY, dUV_dY))) * 2.0f);
-	const float samplingMode = smoothstep(TEXEL_AA_LOD_RELAXED_ALPHA, TEXEL_AA_LOD_CONSERVATIVE_ALPHA, lod);
-
-	const float2 adjustedUV = (adjustedFractionalTexel + floor(originalUV * TEXTURE_DIMENSIONS.xy)) / TEXTURE_DIMENSIONS.xy;
-    const float2 bias=float2(8,8)/ TEXTURE_DIMENSIONS.xy;
-	const float4 blendedSample = source.Sample(bilinearSampler, fmod(lerp(originalUV, adjustedUV, samplingMode)-uvm.xy+bias,uvm.zw)+uvm.xy);
-
-	#if USE_ALPHA_TEST
-		return float4(blendedSample.rgb, lerp(blendedSample.a, smoothstep(1.0f/2.0f, 1.0f, blendedSample.a), samplingMode));
-	#else
-		return blendedSample;
-	#endif
-    h
-    */
-    
-}
-/*
-float4 texture2D_AA(in Texture2D source, in sampler bilinearSampler, in float2 originalUV) {
-
-	const float2 dUV_dX = ddx(originalUV) * TEXTURE_DIMENSIONS.xy;
-	const float2 dUV_dY = ddy(originalUV) * TEXTURE_DIMENSIONS.xy;
-
-
-    float APrime = dUV_dX.y * dUV_dX.y + dUV_dY.y * dUV_dY.y;
-    float BPrime = -2 * (dUV_dX.x * dUV_dX.y + dUV_dY.x * dUV_dY.y);
-    float CPrime = dUV_dX.x * dUV_dX.x + dUV_dY.x * dUV_dY.x;
-    float t = (dUV_dX.x * dUV_dY.y - dUV_dY.x * dUV_dX.y);
-    float F = 1 / (t * t);
-    APrime *= F;
-    BPrime *= F;
-    CPrime *= F;
-    float theta = atan(BPrime / (APrime - CPrime)) * 0.5;
-    float costheta = cos(theta);
-    float sintheta = sin(theta);
-    float det = (APrime - CPrime) * (APrime - CPrime) + BPrime * BPrime;
-    float A = 0.5 * (APrime + CPrime - sqrt(det));
-    float C = 0.5 * (APrime + CPrime + sqrt(det));
-    float a = 1 / sqrt(A); 
-    float b = 1 / sqrt(C); 
-    float x = max(a * costheta, b * sintheta);
-    float y = max(a * sintheta, b * costheta);
-
-	const float2 delU = float2(dUV_dX.x, dUV_dY.x);
-	const float2 delV = float2(dUV_dX.y, dUV_dY.y);
-	const float2 adjustmentScalar = max(1.0f / float2(length(delU), length(delV)), 1.0f);
-	const float2 fractionalTexel = frac(originalUV * TEXTURE_DIMENSIONS.xy);
-	const float2 adjustedFractionalTexel = clamp(fractionalTexel * adjustmentScalar, 0.0f, 0.5f) + clamp(fractionalTexel * adjustmentScalar - (adjustmentScalar - 0.5f), 0.0f, 0.5f);
-
-float4 blendedSample=0;
-const float stps=3;
-float stepX=x/2.0;//x>stps?x/stps?1;
-float stepY=y/2.0;//y>stps?y/stps?1;
-    float sumWeights = 0;
-for(float i=-x;i<=x;i+=stepX)
-for(float j=-y;j<=y;j+=stepY){
-        float sbb =i/TEXTURE_DIMENSIONS.x;
-	    float tbb =j/TEXTURE_DIMENSIONS.y;
-	    float r2 = APrime * sbb * sbb + BPrime * sbb * tbb + CPrime * tbb * tbb;
-	    if (r2 < 1)
-{
-    float weight=1;
-	float2 adjustedUV = (adjustedFractionalTexel + floor(originalUV * TEXTURE_DIMENSIONS.xy)) / TEXTURE_DIMENSIONS.xy;
-
-		blendedSample+=weight*source.SampleLevel(bilinearSampler,float2(i,j)/ TEXTURE_DIMENSIONS.xy+adjustedUV,0);
-	//#endif
-    sumWeights+=weight;
-}
-}
-		return blendedSample/sumWeights;
-}
-*/
 float4 texture2Dat_AA(in Texture2D source, in sampler bilinearSampler, in float2 originalUV) {
 
 	const float2 dUV_dX = ddx(originalUV) * TEXTURE_DIMENSIONS.xy;
@@ -241,6 +64,10 @@ if(max(blendedSample.r/blendedSample.a,max(blendedSample.g/blendedSample.a,blend
 
 }
 
+
+#endif // USE_TEXEL_AA
+
+
 float4 texture2Dlod_AA(in Texture2D source, in sampler bilinearSampler, in float2 originalUV,in float lod) {
     const float el=exp2(lod);
 
@@ -259,8 +86,6 @@ float4 texture2Dlod_AA(in Texture2D source, in sampler bilinearSampler, in float
 
 		return blendedSample;
 }
-
-#endif // USE_TEXEL_AA
 
 float MakeDepthLinear(float z, float n, float f, bool scaleZ)
 {

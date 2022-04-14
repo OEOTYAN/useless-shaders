@@ -181,7 +181,7 @@ struct GeometryShaderOutput {
 #ifndef IS_EXP_ORB
 #ifndef BEACON
 #ifndef ARMOR_STAND
-#ifdef ENABLE_XRAY
+#ifdef ITEM_XRAY
 #ifndef INSTANCEDSTEREO
 #ifndef UI_ENTITY
 #ifndef NO_TEXTURE
@@ -453,7 +453,7 @@ struct GeometryShaderOutput {
                     output.worldpos = input[j].worldpos * (1 + bz * thickness);
                     output.normal = normalize(-input[j].normal);
 
-#ifdef ENABLE_XRAY
+#ifdef ITEM_XRAY
                     output.pos.z = output.pos.z * 0.85;
 #endif
 

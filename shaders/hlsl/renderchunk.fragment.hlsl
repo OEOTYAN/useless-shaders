@@ -71,16 +71,13 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
     rands.y=InterleavedGradientNoise(PSInput.position.xy,TIME+5371.5371);
     rands*=1.01;
 #if USE_TEXEL_AA
-#if 0
-    float4 diffuse =texture2Dlod_AA(TEXTURE_0, TextureSampler0,PSInput.uv0,0);//texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
-#else
     float3 sum=float3(0,0,0);
     float weight=0;
      for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)
          for (int uv0j = 0; uv0j < TEXTURE_MSAA; uv0j++){
              float2 iter;
-             iter.x=(uv0i+rands.x) / (float)(TEXTURE_MSAA);
-             iter.y=(uv0j+rands.y) / (float)(TEXTURE_MSAA);
+             iter.x=(uv0i) / (float)(TEXTURE_MSAA);
+             iter.y=(uv0j) / (float)(TEXTURE_MSAA);
              float2 luv0 =
                  PSInput.uvm.zw*ftri((PSInput.uv0 + uv0dx *iter.x  + uv0dy * iter.y-PSInput.uvm.xy)/PSInput.uvm.zw);
         float4 tmpcolor=texture2Dlod_AA(TEXTURE_0, TextureSampler0,luv0+PSInput.uvm.xy,0);
@@ -92,8 +89,7 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
         sum+=tmpcolor.a*pow(tmpcolor.rgb,2.2);
 	// #endif
     }
-    float4 diffuse = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));//texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv0);
-#endif
+    float4 diffuse = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));
 #else
     float4 diffuse = TEXTURE_0.SampleLevel(TextureSampler0,PSInput.uvm.xy+PSInput.uvm.zw*ftri((PSInput.uv0-PSInput.uvm.xy+uv0dx*rands.x+uv0dy*rands.y)/PSInput.uvm.zw),0);
 #endif

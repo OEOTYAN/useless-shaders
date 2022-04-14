@@ -283,6 +283,9 @@
             "msaaSupport": "Both"
         },
         "map:entity_alphatest": {
+            "+defines": [
+                "TEXEL_AA"
+            ],
             "vertexFields": [
                 {
                     "field": "Position"

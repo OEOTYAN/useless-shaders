@@ -176,8 +176,8 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
      for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)
          for (int uv0j = 0; uv0j < TEXTURE_MSAA; uv0j++){
              float2 iter;
-             iter.x=(uv0i+rands.x) / (float)(TEXTURE_MSAA);
-             iter.y=(uv0j+rands.y) / (float)(TEXTURE_MSAA);
+             iter.x=(uv0i) / (float)(TEXTURE_MSAA);
+             iter.y=(uv0j) / (float)(TEXTURE_MSAA);
              float2 luv0 =
                  PSInput.uvm.zw*ftri((PSInput.uv + uv0dx *iter.x  + uv0dy * iter.y-PSInput.uvm.xy)/PSInput.uvm.zw);
         float4 tmpcolor=texture2Dlod_AA(TEXTURE_0, TextureSampler0,luv0+PSInput.uvm.xy,0);
@@ -189,8 +189,10 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
         sum+=tmpcolor.a*pow(tmpcolor.rgb,2.2);
 	// #endif
     }
-    color = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));
-
+    //color = float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));
+    color =weight==0.0?float4(texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv).rgb,0.0):float4(pow(sum/weight,1.0/2.2),weight/ (float)(TEXTURE_MSAA*TEXTURE_MSAA));
+//color.a =texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv).a;
+//color.rgb =texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv).rgb;
 #endif
 #endif
 #else

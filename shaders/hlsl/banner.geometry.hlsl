@@ -58,7 +58,7 @@ void main(triangle GeometryShaderInput input[3], inout TriangleStream<GeometrySh
     #ifndef UI_ENTITY
             output.edge = 0;
             output.worldpos=input[j].worldpos;
-    #ifdef ENABLE_XRAY
+    #ifdef ITEM_XRAY
         if(length(WORLD[0].xyz)<0.18)
         output.pos.z = input[j].pos.z * 0.8;
         #endif
@@ -102,7 +102,7 @@ void main(triangle GeometryShaderInput input[3], inout TriangleStream<GeometrySh
         float3 mthick=bz * thickness*float3(2,1,4);
         float4 mthick4=float4(1+mthick,1.0);
 		output.pos = mul(WORLDVIEWPROJ, (mPos-biasbanner)*mthick4+biasbanner);
-    #ifdef ENABLE_XRAY
+    #ifdef ITEM_XRAY
         output.pos.z = output.pos.z*0.85;
 #endif
 		output.uv				= input[j2].uv;

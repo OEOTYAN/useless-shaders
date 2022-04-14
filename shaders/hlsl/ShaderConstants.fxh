@@ -1,4 +1,4 @@
-#define ENABLE_XRAY
+#define ITEM_XRAY
 #define ENABLE_OUTLINE
 #define OUTLINE_WIDTH 0.02
 #define ENABLE_BLOCK_MAP
@@ -8,6 +8,7 @@
 #define INV_ASPECT_RATIO 17.0/32.0
 #define CHUNK_BOARD_MSAA 5
 #define TEXTURE_MSAA 3
+#define TEXT_MSAA 6
 #define WATER_MIX 0.06
 #define ITEM_PSIZE 0.044
 #define BLOCK_PSIZE 0.019
@@ -15,7 +16,7 @@
 #define ALWAYS_LIT
 //#define LIGHT_OVERLAY
 //#define FOG
-
+//#define ORE_XRAY //has some bugs
 
 
 

@@ -58,6 +58,7 @@ struct GeometryShaderOutput {
         normalize(cross(input[2].worldPos.xyz - input[1].worldPos.xyz,
                         input[0].worldPos.xyz - input[1].worldPos.xyz));
 
+#ifdef ORE_XRAY
     float3 maxpos= max(input[0].chunkPos.xyz,max(input[1].chunkPos.xyz, input[2].chunkPos.xyz));
     float3 minpos=min(input[0].chunkPos.xyz,min(input[1].chunkPos.xyz, input[2].chunkPos.xyz));
     float3 aabb=maxpos-minpos;
@@ -65,11 +66,13 @@ struct GeometryShaderOutput {
     bool3 isc=abs(frac(center)-0.5)<0.01;
     bool is_ore=false;
 
+
  if((abs(frac(center.y)-0.5)<0.38)&&(isc.x+isc.y+isc.z>1.5)&&
  abs(dot(abs(aabb-float3(1,0.75,1)),float3(1.0,1.0,1.0))-1)<0.01&&
  ((input[1].uv1.x+input[1].uv1.y<0.01)/*||(input[1].uv1.x>0.9375)*/)){
  is_ore=true;
  }
+#endif
 
 #ifndef BYPASS_PIXEL_SHADER
     float2 minuv = min(input[0].uv0, min(input[1].uv0, input[2].uv0));
@@ -120,6 +123,7 @@ struct GeometryShaderOutput {
             output.fogColor = input[j].fogColor;
 #endif
 
+#ifdef ORE_XRAY
            if(is_ore){
                     float3 bias=output.chunkPos-center;
                     bias=(abs(bias)-0.5)*sign(-bias);
@@ -141,6 +145,10 @@ if(false)
             output.uv1 = float2(1.0,1.0);
 #endif
             }
+
+#endif
+
+
             // else{
             //    if(abs(dot(abs(aabb-float3(0.75,0.75,0.75)),float3(1.0,1.0,1.0))-0.75)<0.01){
                 //    output.pos.z=-1;

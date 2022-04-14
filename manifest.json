@@ -3,10 +3,10 @@
     "header": {
         "description": "made by OEOTYAN",
         "name": "some useless shaders",
-        "uuid": "6da4bb49-90a9-4261-b8be-1b8fcecc9e75",
+        "uuid": "680de46c-7cd6-4c69-a56a-0a2cb772fbe0",
         "version": [
             1,
-            6,
+            7,
             0
         ],
         "min_engine_version": [
@@ -19,10 +19,10 @@
         {
             "description": "made by OEOTYAN",
             "type": "resources",
-            "uuid": "99626d38-6e55-4947-8777-df7e0cffcb45",
+            "uuid": "54a0e60a-6d64-488a-9da1-8a44dca79611",
             "version": [
                 1,
-                6,
+                7,
                 0
             ]
         }
