@@ -45,7 +45,6 @@ struct PS_Input {
 
 	float2 uv : TEXCOORD_0_FB_MSAA;
 
-
 #ifdef GEOMETRY_INSTANCEDSTEREO
 	uint instanceID : SV_InstanceID;
 #endif

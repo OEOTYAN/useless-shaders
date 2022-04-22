@@ -2,3 +2,4 @@
 *.mcpack
 *.zip
 texturess
+shaders/hlsl/textr.fragment.hlsl

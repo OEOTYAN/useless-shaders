@@ -49,13 +49,6 @@ void main(in PS_Input PSInput, out PS_Output PSOutput)
 #ifndef UI_ENTITY
     if (PSInput.edge > 0.5) {
         base.rgba = 1;
-        // float3 viewRay = -mul(WORLD, float4(PSInput.worldpos, 1)).rgb;
-        // float3 viewDir = normalize(viewRay);
-        // float3 normal = normalize(cross(-ddy(viewRay), -ddx(viewRay)));
-        // if (dot(viewDir, normal) < 0) {
-        //     discard;
-        // }
-        // base.rgb = dot(viewDir, normal);
     }
 #endif
 	//WARNING do not refactor this 

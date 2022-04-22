@@ -155,6 +155,7 @@ struct GeometryShaderOutput {
 #endif
 
 #ifndef INSTANCEDSTEREO
+#ifndef NO_TEXTURE
         float poslen =
             max(length(mul(WORLD, float4(input[0].worldpos, 1)).rgb -
                        mul(WORLD, float4(input[1].worldpos, 1)).rgb),
@@ -162,6 +163,18 @@ struct GeometryShaderOutput {
                            mul(WORLD, float4(input[1].worldpos, 1)).rgb),
                     length(mul(WORLD, float4(input[0].worldpos, 1)).rgb -
                            mul(WORLD, float4(input[2].worldpos, 1)).rgb)));
+#else
+        float poslen =
+            min(length(mul(WORLD, float4(input[0].worldpos, 1)).rgb -
+                       mul(WORLD, float4(input[1].worldpos, 1)).rgb),
+                min(length(mul(WORLD, float4(input[2].worldpos, 1)).rgb -
+                           mul(WORLD, float4(input[1].worldpos, 1)).rgb),
+                    length(mul(WORLD, float4(input[0].worldpos, 1)).rgb -
+                           mul(WORLD, float4(input[2].worldpos, 1)).rgb)));
+        poslen=poslen/3.0*160.0;
+        poslen=abs(poslen/exp2(floor(log2(poslen)))-1.5);
+        bool isItem=poslen<0.001;
+#endif
 #endif
 
         GeometryShaderOutput output = (GeometryShaderOutput)0;
@@ -187,7 +200,7 @@ struct GeometryShaderOutput {
 #ifndef NO_TEXTURE
             if (poslen / uvl < ((BLOCK_PSIZE) + headbias) && notFrame)
 #else
-            if (poslen < ITEM_PSIZE)
+            if (isItem)
 #endif
                 if (poslen < 0.6)
                     output.pos.z = output.pos.z * 0.8;
@@ -334,7 +347,7 @@ struct GeometryShaderOutput {
         if (poslen / uvl < ((BLOCK_PSIZE) + headbias) && notFrame)
 #endif
 #else
-        if (poslen < ITEM_PSIZE)
+        if (isItem)
 #endif
             if (poslen < 1) {
 #ifndef UI_ENTITY

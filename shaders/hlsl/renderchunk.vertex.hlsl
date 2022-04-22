@@ -1,4 +1,5 @@
 #include "ShaderConstants.fxh"
+#include "util.fxh"
 
 struct VS_Input {
     float3 position : POSITION;
@@ -38,6 +39,15 @@ static const float DIST_DESATURATION =
     56.0 / 255.0;  // WARNING this value is also hardcoded in the water color,
                    // don'tchange
 
+float getleaao(float3 c)
+{
+const float3 O = float3(0.682352941176471,0.643137254901961, 0.164705882352941);
+
+const float3 N = float3(0.195996912842436,0.978673548072766,-0.061508507207520);
+
+return dot(c, float3(0.260278,1.29965,-0.0816814));
+}
+
 ROOT_SIGNATURE
 void main(in VS_Input VSInput, out PS_Input PSInput) {
 #ifndef BYPASS_PIXEL_SHADER
@@ -46,19 +56,47 @@ void main(in VS_Input VSInput, out PS_Input PSInput) {
     PSInput.color = VSInput.color;
 #endif
 
-    PSInput.chunkPos = VSInput.position.xyz;
+float3 mPos=VSInput.position.xyz;
+
+#if !defined(AS_ENTITY_RENDERER)&&defined(BLEND)&&!defined(BYPASS_PIXEL_SHADER)&&defined(WAVING_WATER)
+bool maywater=false;
+if (VSInput.color.r + VSInput.color.g + VSInput.color.b < 2.9 &&
+         VSInput.color.r * 1.5 < VSInput.color.b&&abs((abs(frac(VSInput.position.y)-0.5)-0.5))>0.001) {
+        maywater = true;
+    }
+#endif
+
+#if !defined(AS_ENTITY_RENDERER)&&defined(BLEND)&&!defined(BYPASS_PIXEL_SHADER)&&defined(WAVING_WATER)
+if(maywater){
+        float3 mPos2=fmod(VSInput.position.xyz,16);
+
+// float lightWeight = clamp((input[j].uv1.y * 33.05f / 32.0f) - 1.05f / 32.0f, 0.0f, 1.0f);
+    //   lightWeight *= 1.1f;
+    //   lightWeight -= 0.1f;
+    //   lightWeight = max(0.0f, lightWeight);
+    //  lightWeight = Pow5(lightWeight);
+
+float speed =  0.1;
+
+		float magnitude = (sin(((mPos2.y + mPos2.x)/2.0 + TIME * 3.14159265358979323846264 / ((28.0)))) * 0.055 + 0.045) ;
+		float d2 = sin(TIME * 3.14159265358979323846264 / (112.0 * speed)) * 3.0 - 1.5;
+		float d3 = sin(TIME * 3.14159265358979323846264 / (142.0 * speed)) * 3.0 - 1.5;
+        mPos.y += sin((TIME * 3.14159265358979323846264 / (11.0 * speed)) + (mPos2.z + d2) + (mPos2.x + d3)) * magnitude*frac(VSInput.position.y);
+} 
+#endif
+    PSInput.chunkPos = mPos;
 
 #ifdef AS_ENTITY_RENDERER
 #ifdef INSTANCEDSTEREO
     int i = VSInput.instanceID;
     PSInput.position =
-        mul(WORLDVIEWPROJ_STEREO[i], float4(VSInput.position, 1));
+        mul(WORLDVIEWPROJ_STEREO[i], float4(mPos, 1));
 #else
-    PSInput.position = mul(WORLDVIEWPROJ, float4(VSInput.position, 1));
+    PSInput.position = mul(WORLDVIEWPROJ, float4(mPos, 1));
 #endif
     float3 worldPos = PSInput.position;
 #else
-    float3 worldPos = (VSInput.position * CHUNK_ORIGIN_AND_SCALE.w) +
+    float3 worldPos = (mPos * CHUNK_ORIGIN_AND_SCALE.w) +
                       CHUNK_ORIGIN_AND_SCALE.xyz;
 
     // Transform to view space before projection instead of all at once to avoid

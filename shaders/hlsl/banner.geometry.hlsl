@@ -59,8 +59,17 @@ void main(triangle GeometryShaderInput input[3], inout TriangleStream<GeometrySh
             output.edge = 0;
             output.worldpos=input[j].worldpos;
     #ifdef ITEM_XRAY
-        if(length(WORLD[0].xyz)<0.18)
+        if(length(WORLD[0].xyz)<0.17&&
+        !(abs(length(WORLD[1].y) - 0.16) > 0.0001 ||
+            (abs(length(WORLD[1].y) - 0.16) +
+                 abs(max(max(max(abs(WORLD[0].x), abs(WORLD[0].y)),
+                             abs(WORLD[0].z)),
+                         max(max(abs(WORLD[2].x), abs(WORLD[2].y)),
+                             abs(WORLD[2].z))) -
+                     0.16) <
+             0.0000000000001))){
         output.pos.z = input[j].pos.z * 0.8;
+        }
         #endif
         #endif
 		output.uv				= input[j].uv;
@@ -81,7 +90,15 @@ void main(triangle GeometryShaderInput input[3], inout TriangleStream<GeometrySh
     #ifdef ENABLE_OUTLINE
     #ifndef UI_ENTITY
         outStream.RestartStrip();
-        if(length(WORLD[0].xyz)<0.18){
+        if(length(WORLD[0].xyz)<0.17&&
+        !(abs(length(WORLD[1].y) - 0.16) > 0.0001 ||
+            (abs(length(WORLD[1].y) - 0.16) +
+                 abs(max(max(max(abs(WORLD[0].x), abs(WORLD[0].y)),
+                             abs(WORLD[0].z)),
+                         max(max(abs(WORLD[2].x), abs(WORLD[2].y)),
+                             abs(WORLD[2].z))) -
+                     0.16) <
+             0.0000000000001))){
             
                     float thickness = (float)OUTLINE_WIDTH;
                     float4 biasbanner=float4(0,-0.5,0,0);

@@ -170,7 +170,6 @@ void main(in PS_Input PSInput, out PS_Output PSOutput) {
 #if 0
     color = texture2D_AA(TEXTURE_0, TextureSampler0, PSInput.uv);
 #else
-
     float3 sum=float3(0,0,0);
     float weight=0;
      for (int uv0i = 0; uv0i < TEXTURE_MSAA; uv0i++)

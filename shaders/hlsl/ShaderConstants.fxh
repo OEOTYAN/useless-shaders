@@ -9,12 +9,18 @@
 #define CHUNK_BOARD_MSAA 5
 #define TEXTURE_MSAA 3
 #define TEXT_MSAA 6
+#define TICKING_DIS 10
+//#define SHOW_TICKING_DIS
+#define SHOW_MAP_TICKING_DIS
 #define WATER_MIX 0.06
-#define ITEM_PSIZE 0.044
 #define BLOCK_PSIZE 0.019
 #define PLAYER_MAP_SIZE 0.015
-#define ALWAYS_LIT
+//#define ALWAYS_LIT
 //#define LIGHT_OVERLAY
+#define WAVING_WHEAT
+#define WAVING_LEAVES
+#define WAVING_WATERLILY
+#define WAVING_WATER
 //#define FOG
 //#define ORE_XRAY //has some bugs
 

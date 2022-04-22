@@ -47,6 +47,10 @@ float InterleavedGradientNoise( float2 uv, float FrameId )
     return frac(magic.z * frac(dot(uv, magic.xy)));
 }
 
+bool isTicking(float3 ckp){
+    return (ckp.x+ckp.z<=TICKING_DIS+1&&max(ckp.x,ckp.z)<=TICKING_DIS);
+}
+
 ROOT_SIGNATURE
 
 void main(in PS_Input PSInput, out PS_Output PSOutput) {
@@ -192,6 +196,7 @@ float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
          PSInput.color.r * 1.5 < PSInput.color.b)) {
         iswater = 1.0;
     }
+
     diffuse.rgb *= PSInput.color.rgb;
 #else
     float2 uv = PSInput.color.xy;
@@ -211,8 +216,8 @@ float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
     float3 chdy = ddy_fine(ch);
     // float3 linea = max(chw/2,0.0625);//0.0625
     // float3 lineb = max(chw/2,0.0625 / 2.0);//0.0625 / 2.0
-    float3 linea = 0.0626;        // 0.0625
-    float3 lineb = 0.0627 / 2.0;  // 0.0625 / 2.0
+    float3 linea = 0.0626*(1+PSInput.ismap*5);        // 0.0625
+    float3 lineb = 0.0627 / 2.0*(1+PSInput.ismap*5);  // 0.0625 / 2.0
     int ckk = 1;
     if (((PSInput.chunkPos.x < linea.x + chw.x ||
           PSInput.chunkPos.x > 16.0 - linea.x - chw.x) ||
@@ -257,6 +262,7 @@ float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
             else
                 lrrr += 1;
         }
+        
     float weightq = ckk;
     weightq = 1.0 / weightq / weightq;
     diffuse.rgb =
@@ -1173,7 +1179,33 @@ float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
         min(min(PSInput.color.r, PSInput.color.g), PSInput.color.b) < 0.8)
         diffuse.rgb = diffuse.rgb / lightIntensity(PSInput.normal) *
                       lightIntensity(-PSInput.normal);
-    // PSOutput.color.a = diffuse.a;
+     PSOutput.color.a = diffuse.a;
+
+#if defined(SHOW_TICKING_DIS)|| defined(SHOW_MAP_TICKING_DIS)
+    float3 mck=(ceil((PSInput.worldPos-PSInput.chunkPos)/16));
+    //diffuse.r*=(mck.x+mck.z<=TICKING_DIS+1&&max(mck.x,mck.z)<=TICKING_DIS)?1:0;
+
+if(
+    (0
+    #ifdef SHOW_MAP_TICKING_DIS
+  ||PSInput.ismap > 0.5
+    #endif
+    #ifdef SHOW_TICKING_DIS
+  ||PSInput.ismap < 0.5
+    #endif
+)&&
+    ((max(abs(PSInput.chunkPos.x-8),abs(PSInput.chunkPos.z-8))>7.5-PSInput.ismap*2&&!isTicking(abs(mck)))
+&&((abs(PSInput.chunkPos.x-8)<(PSInput.chunkPos.z-8)&&isTicking(abs(mck+float3(0,0,1))))||
+(abs(PSInput.chunkPos.x-8)<-(PSInput.chunkPos.z-8)&&isTicking(abs(mck-float3(0,0,1))))||
+((PSInput.chunkPos.x-8)>abs(PSInput.chunkPos.z-8)&&isTicking(abs(mck+float3(1,0,0))))||
+(-(PSInput.chunkPos.x-8)>abs(PSInput.chunkPos.z-8)&&isTicking(abs(mck-float3(1,0,0))))))
+){
+diffuse.rgb=(diffuse.rgb / 0.4f) * (float3(1,1,1) - diffuse.rgb);
+                    diffuse.rgb =
+                        lerp(diffuse.rgb, float3(0.7, 0, 0), 0.7);
+    }
+#endif
+
     PSOutput.color = diffuse;
 
 #ifdef VR_MODE
