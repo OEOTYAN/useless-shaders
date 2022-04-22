@@ -66,6 +66,7 @@ if(max(blendedSample.r/blendedSample.a,max(blendedSample.g/blendedSample.a,blend
 
 #endif // USE_TEXEL_AA
 
+
 float4 texture2Dlod_AA(in Texture2D source, in sampler bilinearSampler, in float2 originalUV,in float lod) {
     const float el=exp2(lod);
 
