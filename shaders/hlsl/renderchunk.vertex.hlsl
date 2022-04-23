@@ -59,15 +59,14 @@ void main(in VS_Input VSInput, out PS_Input PSInput) {
 float3 mPos=VSInput.position.xyz;
 
 #if !defined(AS_ENTITY_RENDERER)&&defined(BLEND)&&!defined(BYPASS_PIXEL_SHADER)&&defined(WAVING_WATER)
-bool maywater=false;
-if (VSInput.color.r + VSInput.color.g + VSInput.color.b < 2.9 &&
-         VSInput.color.r * 1.5 < VSInput.color.b&&abs((abs(frac(VSInput.position.y)-0.5)-0.5))>0.001) {
-        maywater = true;
+bool iswater=false;
+    if (PSInput.color.a>0.05&&PSInput.color.a<0.95&&abs(PSInput.color.b-PSInput.color.g)+abs(PSInput.color.r-PSInput.color.g)>0.0001) {
+        iswater = true;
     }
 #endif
 
 #if !defined(AS_ENTITY_RENDERER)&&defined(BLEND)&&!defined(BYPASS_PIXEL_SHADER)&&defined(WAVING_WATER)
-if(maywater){
+if(iswater){
         float3 mPos2=fmod(VSInput.position.xyz,16);
 
 // float lightWeight = clamp((input[j].uv1.y * 33.05f / 32.0f) - 1.05f / 32.0f, 0.0f, 1.0f);

@@ -192,8 +192,7 @@ float3 mlight=TEXTURE_1.Sample(TextureSampler1, PSInput.uv1).rgb;
 #if !USE_ALPHA_TEST && !defined(BLEND)
     diffuse.a = PSInput.color.a;
 #endif
-    if ((PSInput.color.r + PSInput.color.g + PSInput.color.b < 2.9 &&
-         PSInput.color.r * 1.5 < PSInput.color.b)) {
+    if (PSInput.color.a>0.05&&PSInput.color.a<0.95&&abs(PSInput.color.b-PSInput.color.g)+abs(PSInput.color.r-PSInput.color.g)>0.0001) {
         iswater = 1.0;
     }
 
