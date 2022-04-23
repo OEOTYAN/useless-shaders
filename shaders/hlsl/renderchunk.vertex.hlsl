@@ -81,7 +81,7 @@ float speed =  0.1;
 		float magnitude = (sin(((mPos2.y + mPos2.x)/2.0 + TIME * 3.14159265358979323846264 / ((28.0)))) * 0.055 + 0.045) ;
 		float d2 = sin(TIME * 3.14159265358979323846264 / (112.0 * speed)) * 3.0 - 1.5;
 		float d3 = sin(TIME * 3.14159265358979323846264 / (142.0 * speed)) * 3.0 - 1.5;
-        mPos.y += sin((TIME * 3.14159265358979323846264 / (11.0 * speed)) + (mPos2.z + d2) + (mPos2.x + d3)) * magnitude*frac(VSInput.position.y);
+        mPos.y += sin((TIME * 3.14159265358979323846264 / (11.0 * speed)) + (mPos2.z + d2) + (mPos2.x + d3)) * magnitude*frac(VSInput.position.y+0.005);
 } 
 #endif
     PSInput.chunkPos = mPos;
