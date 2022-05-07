@@ -1,0 +1,2222 @@
+{
+  "hasBitSet": true,
+  "bitSet": "111111111111111",
+  "unknownByte0": 0,
+  "fallback": "",
+  "hasBlendMode": false,
+  "defaultFlagModes": {
+    "Instancing": "Off",
+    "RenderAsBillboards": "Off",
+    "Seasons": "Off"
+  },
+  "variantList": [
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 963615860140394334,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -5322155105758157635,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "0.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -3736122041349655008,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -4121947295450555494,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "1.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 7975333683133946198,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -8621167961344297056,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "2.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 6929851658201411051,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 3094649440760670765,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "3.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -7036903028940347596,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -4631516552065841834,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "4.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "Metal",
+            "type": "Vertex",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 5116882836442713350,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 480,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 48,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 576,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Metal.Vertex.msl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "Metal",
+            "type": "Fragment",
+            "platform": "Metal"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -7489978371827883698,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_alphaRef4",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 496,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_modelViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 64,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_modelView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 144,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewRect",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 208,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 20,
+                  "num": 4,
+                  "regIndex": 224,
+                  "regCount": 16
+                },
+                {
+                  "name": "u_viewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 512,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 592,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_view",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 656,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_proj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 720,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invViewProj",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 784,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_invView",
+                  "type": 20,
+                  "num": 1,
+                  "regIndex": 848,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_viewTexel",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 912,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightWorldSpaceDirection",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 32,
+                  "regCount": 1
+                },
+                {
+                  "name": "LightDiffuseColorAndIntensity",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 128,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 17,
+                  "num": 0,
+                  "regIndex": 2,
+                  "regCount": 0
+                }
+              ],
+              "codeFile": "5.Metal.Fragment.msl"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

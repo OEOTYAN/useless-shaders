@@ -1,0 +1,1235 @@
+{
+  "hasBitSet": true,
+  "bitSet": "111111111111111",
+  "unknownByte0": 0,
+  "fallback": "",
+  "hasBlendMode": false,
+  "defaultFlagModes": {
+    "Instancing": "Off",
+    "RenderAsBillboards": "Off",
+    "Seasons": "Off"
+  },
+  "variantList": [
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 6755200755904839290,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 6159977994778964961,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -1329909565651626505,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 8643142311537258004,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -3916820646642332100,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -7237606234038318509,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -5087559462932075461,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 7871896455267618772,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 717899390829638768,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 3697487522482229774,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "typeName": "Vertex",
+            "platformName": "ESSL_100",
+            "type": "Vertex",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "attribute": "Position",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "attribute": "TexCoord8",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "attribute": "TexCoord7",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "attribute": "TexCoord6",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "attribute": "TexCoord5",
+                "isInstanceData": true,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": -434091248222615504,
+            "bgfxShaderData": {
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.ESSL_100.Vertex.glsl"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "typeName": "Fragment",
+            "platformName": "ESSL_100",
+            "type": "Fragment",
+            "platform": "ESSL_100"
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "attribute": "TexCoord0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": "CENTROID"
+              },
+              "color0": {
+                "type": "Vec4",
+                "attribute": "Color0",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "attribute": "TexCoord1",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              },
+              "fog": {
+                "type": "Vec4",
+                "attribute": "Color2",
+                "isInstanceData": false,
+                "hasPrecisionConstraint": false,
+                "hasInterpolationConstraint": false
+              }
+            },
+            "unknownLong0": 393853668386031295,
+            "bgfxShaderData": {
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 0,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.ESSL_100.Fragment.glsl"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

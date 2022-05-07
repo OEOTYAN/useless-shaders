@@ -1,0 +1,72 @@
+//Instancing=Off
+//RenderAsBillboards=On
+//Seasons=Off
+
+#include <metal_stdlib>
+#include <simd/simd.h>
+
+using namespace metal;
+
+struct _Global
+{
+    float4 FogColor;
+    float4 GlobalRoughness;
+    float4 LightWorldSpaceDirection;
+    float4 FogAndDistanceControl;
+    float4x4 u_modelViewProj;
+    float4 LightDiffuseColorAndIntensity;
+    float4x4 u_modelView;
+    float4 u_viewRect;
+    float4x4 u_model[4];
+    float4 ViewPositionAndTime;
+    float4 u_alphaRef4;
+    float4x4 u_viewProj;
+    float4 RenderChunkFogAlpha;
+    float4x4 u_invProj;
+    float4x4 u_view;
+    float4x4 u_proj;
+    float4x4 u_invViewProj;
+    float4x4 u_invView;
+    float4 u_viewTexel;
+};
+
+struct xlatMtlMain_out
+{
+    float4 _entryPointOutput_v_color0 [[user(locn0)]];
+    float4 _entryPointOutput_v_fog [[user(locn1)]];
+    float2 _entryPointOutput_v_lightmapUV [[user(locn2)]];
+    float2 _entryPointOutput_v_texcoord0 [[user(locn3)]];
+    float4 gl_Position [[position]];
+};
+
+struct xlatMtlMain_in
+{
+    float4 a_color0 [[attribute(0)]];
+    float3 a_position [[attribute(1)]];
+    float2 a_texcoord0 [[attribute(2)]];
+    float2 a_texcoord1 [[attribute(3)]];
+};
+
+vertex xlatMtlMain_out xlatMtlMain(xlatMtlMain_in in [[stage_in]], constant _Global& _mtl_u [[buffer(0)]])
+{
+    xlatMtlMain_out out = {};
+    float4 _1047 = in.a_color0;
+    float3 _767 = (_mtl_u.u_model[0] * float4(in.a_position, 1.0)).xyz + float3(0.5);
+    float3 _775 = normalize(_767 - _mtl_u.ViewPositionAndTime.xyz);
+    float3 _778 = normalize(cross(float3(0.0, 1.0, 0.0), _775));
+    float3 _764 = in.a_color0.xyz;
+    float3 _798 = _767 - ((cross(_775, _778) * (_764.z - 0.5)) + (_778 * (_764.x - 0.5)));
+    float _740 = length(_mtl_u.ViewPositionAndTime.xyz - _798);
+    float4 _926 = float4(1.0);
+    if (_1047.w < 0.949999988079071044921875)
+    {
+        _926.w = mix(_1047.w, 1.0, fast::clamp(_740 / _mtl_u.FogAndDistanceControl.w, 0.0, 1.0));
+    }
+    out.gl_Position = _mtl_u.u_viewProj * float4(_798, 1.0);
+    out._entryPointOutput_v_color0 = _926;
+    out._entryPointOutput_v_fog = float4(_mtl_u.FogColor.xyz, fast::clamp((((_740 / _mtl_u.FogAndDistanceControl.z) + _mtl_u.RenderChunkFogAlpha.x) - _mtl_u.FogAndDistanceControl.x) / (_mtl_u.FogAndDistanceControl.y - _mtl_u.FogAndDistanceControl.x), 0.0, 1.0));
+    out._entryPointOutput_v_lightmapUV = in.a_texcoord1;
+    out._entryPointOutput_v_texcoord0 = in.a_texcoord0;
+    return out;
+}
+

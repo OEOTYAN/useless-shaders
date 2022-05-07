@@ -1,0 +1,130 @@
+{
+  "version": 22,
+  "encryptionVariant": "None",
+  "name": "RenderChunk",
+  "hasName2": false,
+  "samplerDefinitionMap": {
+    "MatTexture": {
+      "unknownByte0": 0,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "unknownStr0": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    },
+    "LightMapTexture": {
+      "unknownByte0": 1,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "unknownStr0": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    },
+    "SeasonsTexture": {
+      "unknownByte0": 2,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "unknownStr0": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    }
+  },
+  "propertyFieldMap": {
+    "LightWorldSpaceDirection": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        -1.0,
+        0.0,
+        1.0
+      ]
+    },
+    "RenderChunkFogAlpha": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "LightDiffuseColorAndIntensity": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "GlobalRoughness": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "FogAndDistanceControl": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ViewPositionAndTime": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "FogColor": {
+      "unknownInt0": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "passes": [
+    "DepthOnly",
+    "Opaque",
+    "DepthOnlyOpaque",
+    "AlphaTest",
+    "Transparent"
+  ]
+}

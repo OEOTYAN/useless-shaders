@@ -1,0 +1,5660 @@
+{
+  "hasBitSet": true,
+  "bitSet": "111111111111111",
+  "unknownByte0": 0,
+  "unknownString0": "",
+  "hasBlendMode": false,
+  "unknownStringMap": {
+    "Instancing": "Off",
+    "RenderAsBillboards": "Off",
+    "Seasons": "Off"
+  },
+  "variantList": [
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 8958313833860997159,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -3892153973623542441,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -5601346536568557670,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -4680534972915363849,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 4484071858514143248,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -2182391666446771677,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 331648957382219822,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 1671154833099673942,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "0.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "On"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -724350765639394569,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -5451223464496118193,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 996091009493831619,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 2913624768103075716,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -8232510231253607641,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -5331360255747936115,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -4187628694690591237,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 7694752214452557033,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "1.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 648264840842091906,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -165632608380671219,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -8609222710195162907,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 6413186633009013457,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 1354724985137280738,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 6146041258676935956,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -5617379394267738609,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -3316683609422509945,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "2.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "RenderAsBillboards",
+          "value": "Off"
+        },
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -7407180434650276623,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -4585625611503908598,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 9218657635962478583,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 5065988338234491448,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 1270623802442627666,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -8479043164233741637,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 1676222515049004060,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 4630990373699558809,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "3.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "On"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 8374930011488874144,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -6545472586121908303,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -5713116313389853934,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 2679303170855340960,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -6441797567705216101,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 9030393412471438406,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 7089275577940684763,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -4811996187545106614,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17,
+                24,
+                23,
+                22,
+                21
+              ],
+              "size": 128,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 64,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 80,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 96,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 112,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "4.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "unknownBool0": true,
+      "flagModeList": [
+        {
+          "key": "Instancing",
+          "value": "Off"
+        },
+        {
+          "key": "RenderAsBillboards",
+          "value": "On"
+        },
+        {
+          "key": "Seasons",
+          "value": "Off"
+        }
+      ],
+      "shaderCodes": [
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM40",
+            "typeId": 0,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -217904123016374488,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM40.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM50",
+            "typeId": 1,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 713055154135032073,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM50.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM40",
+            "typeId": 1,
+            "platformId": 0
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -3848185251125257313,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM40.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM50",
+            "typeId": 0,
+            "platformId": 1
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 2812329070891268162,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM50.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM60",
+            "typeId": 0,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -1241559192658283661,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM60.Vertex.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM65",
+            "typeId": 1,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": -6830445792422160390,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM65.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Fragment",
+            "platform": "Direct3D_SM60",
+            "typeId": 1,
+            "platformId": 2
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": true,
+                "interpolationConstraint": 3
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "fog": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 2,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 3238441143446972654,
+            "bgfxShaderData": {
+              "attrs": [],
+              "size": 16,
+              "magic": 1179863045,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "FogColor",
+                  "type": 18,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_MatTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 0,
+                  "regCount": 1
+                },
+                {
+                  "name": "s_LightMapTexture",
+                  "type": 48,
+                  "num": 1,
+                  "regIndex": 1,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM60.Fragment.dxbc"
+            }
+          }
+        },
+        {
+          "platformShaderStage": {
+            "type": "Vertex",
+            "platform": "Direct3D_SM65",
+            "typeId": 0,
+            "platformId": 3
+          },
+          "shaderCode": {
+            "shaderInputMap": {
+              "position": {
+                "type": "Vec3",
+                "unknownByte0": 0,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData0": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 8,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData1": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 7,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "texcoord0": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData2": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 6,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "color0": {
+                "type": "Vec4",
+                "unknownByte0": 4,
+                "unknownByte1": 0,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "lightmapUV": {
+                "type": "Vec2",
+                "unknownByte0": 7,
+                "unknownByte1": 1,
+                "unknownBool1": false,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              },
+              "instanceData3": {
+                "type": "Vec4",
+                "unknownByte0": 7,
+                "unknownByte1": 5,
+                "unknownBool1": true,
+                "hasPrecisionConstraint": false,
+                "precisionConstraint": 0,
+                "hasInterpolationConstraint": false,
+                "interpolationConstraint": 0
+              }
+            },
+            "unknownLong0": 9189576898119187159,
+            "bgfxShaderData": {
+              "attrs": [
+                5,
+                1,
+                16,
+                17
+              ],
+              "size": 384,
+              "magic": 1448298501,
+              "hash": 738440508,
+              "uniforms": [
+                {
+                  "name": "u_viewProj",
+                  "type": 4,
+                  "num": 0,
+                  "regIndex": 0,
+                  "regCount": 4
+                },
+                {
+                  "name": "u_model",
+                  "type": 4,
+                  "num": 4,
+                  "regIndex": 64,
+                  "regCount": 16
+                },
+                {
+                  "name": "RenderChunkFogAlpha",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 320,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogAndDistanceControl",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 336,
+                  "regCount": 1
+                },
+                {
+                  "name": "ViewPositionAndTime",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 352,
+                  "regCount": 1
+                },
+                {
+                  "name": "FogColor",
+                  "type": 2,
+                  "num": 0,
+                  "regIndex": 368,
+                  "regCount": 1
+                }
+              ],
+              "codeFile": "5.Direct3D_SM65.Vertex.dxbc"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

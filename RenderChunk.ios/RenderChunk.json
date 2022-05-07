@@ -1,0 +1,130 @@
+{
+  "version": 22,
+  "encryptionVariant": "None",
+  "name": "RenderChunk",
+  "hasName2": false,
+  "samplerDefinitionMap": {
+    "SeasonsTexture": {
+      "reg": 0,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "textureFormat": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    },
+    "MatTexture": {
+      "reg": 1,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "textureFormat": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    },
+    "LightMapTexture": {
+      "reg": 2,
+      "unknownByte1": 1,
+      "unknownByte2": 0,
+      "unknownBool0": false,
+      "unknownByte3": 0,
+      "textureFormat": "",
+      "hasUnknownInt": true,
+      "unknownInt": 1,
+      "unknownBool1": false,
+      "hasCustomTypeInfo": false
+    }
+  },
+  "propertyFieldMap": {
+    "FogColor": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "ViewPositionAndTime": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "GlobalRoughness": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "FogAndDistanceControl": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "LightDiffuseColorAndIntensity": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "RenderChunkFogAlpha": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "LightWorldSpaceDirection": {
+      "num": 1,
+      "type": 2,
+      "hasData": true,
+      "vectorData": [
+        0.0,
+        -1.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "passes": [
+    "DepthOnlyOpaque",
+    "AlphaTest",
+    "Opaque",
+    "Transparent",
+    "DepthOnly"
+  ]
+}

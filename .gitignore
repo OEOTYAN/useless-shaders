@@ -1,5 +1,2 @@
-.vecode
-*.mcpack
-*.zip
-texturess
-shaders/hlsl/textr.fragment.hlsl
+*.bin
+resources
