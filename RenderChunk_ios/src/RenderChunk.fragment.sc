@@ -14,9 +14,10 @@ void main() {
 #else
     diffuse = texture2D(s_MatTexture, v_texcoord0);
 
-#if defined(ALPHA_TEST) || defined(DEPTH_ONLY)
+#if defined(ALPHA_TEST)
+    bool needDiscard = false;
     if (diffuse.a < 0.5) {
-        discard;
+        needDiscard = true;
     }
 #endif
 
@@ -58,6 +59,7 @@ void main() {
                 (cp.x <= 0.3 && cp.x >= 0.1 && cp.z <= 0.75 && cp.z >= 0.65) ||
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.35 && cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -77,6 +79,7 @@ void main() {
                 (cp.x <= 0.4 && cp.x >= 0.3 && cp.z <= 0.75 && cp.z >= 0.45) ||
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.55 && cp.z >= 0.45)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -97,6 +100,7 @@ void main() {
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.35 && cp.z >= 0.25) ||
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -116,6 +120,7 @@ void main() {
                 (cp.x <= 0.3 && cp.x >= 0.1 && cp.z <= 0.35 && cp.z >= 0.25) ||
                 (cp.x <= 0.4 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -133,6 +138,7 @@ void main() {
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.35) ||
                 (cp.x <= 0.4 && cp.x >= 0.3 && cp.z <= 0.75 && cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -151,6 +157,7 @@ void main() {
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.75 && cp.z >= 0.65) ||
                 (cp.x <= 0.3 && cp.x >= 0.2 && cp.z <= 0.35 && cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
         if (v_color0.r > 193.0 / 255.0 - 0.005 &&
@@ -171,6 +178,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 &&
                  cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -192,6 +200,7 @@ void main() {
                 (cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.35 &&
                  cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -209,6 +218,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.65 &&
                  cp.z >= 0.55)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -230,6 +240,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.35 &&
                  cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -251,6 +262,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.35 &&
                  cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -268,6 +280,7 @@ void main() {
                 (cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 &&
                  cp.z >= 0.45)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -287,6 +300,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 &&
                  cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -308,6 +322,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 &&
                  cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -325,6 +340,7 @@ void main() {
                 (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 &&
                  cp.z >= 0.65)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
 
@@ -341,32 +357,45 @@ void main() {
                 (cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.35 &&
                  cp.z >= 0.25)) {
                 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
+                needDiscard = false;
             }
         }
     }
 #endif
 
+#if defined(ALPHA_TEST)&&!(defined(DEPTH_ONLY_OPAQUE) || defined(DEPTH_ONLY))
+    if (needDiscard) {
+        discard;
+    }
+#endif
+
     diffuse.rgb *= texture2D(s_LightMapTexture, v_lightmapUV).rgb;
 
-    // cp = fract(chunkPos.xyz);
+#define NO_MSAA
 
-    // if(((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.y < 0.0625
-    // || chunkPos.y > 15.9375)) ||
-    // ((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.z < 0.0625 ||
-    // chunkPos.z > 15.9375)) ||
-    // ((chunkPos.y < 0.0625 || chunkPos.y > 15.9375) && (chunkPos.z < 0.0625 ||
-    // chunkPos.z > 15.9375))){ diffuse.rgb = mix(diffuse.rgb,vec3(0.0,
-    // 0.0, 1.0),0.2);
-    // }else if(((chunkPos.x < 0.03125 || chunkPos.x > 15.96875) || (chunkPos.z
-    // < 0.03125 || chunkPos.z > 15.96875)) &&
-    // (((cp.x < 0.03125 || cp.x > 0.96875) && (cp.y < 0.03125 || cp.y >
-    // 0.96875)) ||
-    // ((cp.x < 0.03125 || cp.x > 0.96875) && (cp.z < 0.03125 || cp.z >
-    // 0.96875)) ||
-    // ((cp.y < 0.03125 || cp.y > 0.96875) && (cp.z < 0.03125 || cp.z >
-    // 0.96875)))){
-    // diffuse.rgb = (diffuse.rgb/0.4f)*(vec3(1.0, 1.0, 1.0) - diffuse.rgb);
-    // }
+#ifdef NO_MSAA
+
+    cp = fract(chunkPos.xyz);
+
+    if(((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.y < 0.0625
+    || chunkPos.y > 15.9375)) ||
+    ((chunkPos.x < 0.0625 || chunkPos.x > 15.9375) && (chunkPos.z < 0.0625 ||
+    chunkPos.z > 15.9375)) ||
+    ((chunkPos.y < 0.0625 || chunkPos.y > 15.9375) && (chunkPos.z < 0.0625 ||
+    chunkPos.z > 15.9375))){ 
+        diffuse.rgb = mix(diffuse.rgb,vec3(0.0, 0.0, 1.0),0.2);
+    }else if(((chunkPos.x < 0.03125 || chunkPos.x > 15.96875) || (chunkPos.z
+    < 0.03125 || chunkPos.z > 15.96875)) &&
+    (((cp.x < 0.03125 || cp.x > 0.96875) && (cp.y < 0.03125 || cp.y >
+    0.96875)) ||
+    ((cp.x < 0.03125 || cp.x > 0.96875) && (cp.z < 0.03125 || cp.z >
+    0.96875)) ||
+    ((cp.y < 0.03125 || cp.y > 0.96875) && (cp.z < 0.03125 || cp.z >
+    0.96875)))){
+    diffuse.rgb = (diffuse.rgb/0.4f)*(vec3(1.0, 1.0, 1.0) - diffuse.rgb);
+    }
+
+#else
 
      cp = fract(chunkPos);
     vec3 ch = chunkPos;
@@ -427,6 +456,7 @@ void main() {
         (lerp(diffuse.rgb, vec3(0.0, 0.0, 1.0), 0.2) * weightq * l1 +
          (diffuse.rgb / 0.4) * (vec3(1.0, 1.0, 1.0) - diffuse.rgb) *
              weightq * l2);
+#endif
 
     //diffuse.rgb = mix(diffuse.rgb,v_fog.rgb,v_fog.a);
     gl_FragColor = diffuse;

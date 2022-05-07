@@ -5,36 +5,36 @@
   "hasName2": false,
   "samplerDefinitionMap": {
     "MatTexture": {
-      "unknownByte0": 0,
+      "reg": 0,
       "unknownByte1": 1,
       "unknownByte2": 0,
       "unknownBool0": false,
       "unknownByte3": 0,
-      "unknownStr0": "",
+      "textureFormat": "",
       "hasUnknownInt": true,
       "unknownInt": 1,
       "unknownBool1": false,
       "hasCustomTypeInfo": false
     },
     "LightMapTexture": {
-      "unknownByte0": 1,
+      "reg": 1,
       "unknownByte1": 1,
       "unknownByte2": 0,
       "unknownBool0": false,
       "unknownByte3": 0,
-      "unknownStr0": "",
+      "textureFormat": "",
       "hasUnknownInt": true,
       "unknownInt": 1,
       "unknownBool1": false,
       "hasCustomTypeInfo": false
     },
     "SeasonsTexture": {
-      "unknownByte0": 2,
+      "reg": 2,
       "unknownByte1": 1,
       "unknownByte2": 0,
       "unknownBool0": false,
       "unknownByte3": 0,
-      "unknownStr0": "",
+      "textureFormat": "",
       "hasUnknownInt": true,
       "unknownInt": 1,
       "unknownBool1": false,
@@ -43,7 +43,7 @@
   },
   "propertyFieldMap": {
     "LightWorldSpaceDirection": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -54,7 +54,7 @@
       ]
     },
     "RenderChunkFogAlpha": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -65,7 +65,7 @@
       ]
     },
     "LightDiffuseColorAndIntensity": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -76,7 +76,7 @@
       ]
     },
     "GlobalRoughness": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -87,7 +87,7 @@
       ]
     },
     "FogAndDistanceControl": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -98,7 +98,7 @@
       ]
     },
     "ViewPositionAndTime": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
@@ -109,7 +109,7 @@
       ]
     },
     "FogColor": {
-      "unknownInt0": 1,
+      "num": 1,
       "type": 2,
       "hasData": true,
       "vectorData": [
