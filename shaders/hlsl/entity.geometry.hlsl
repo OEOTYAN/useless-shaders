@@ -100,6 +100,7 @@ struct GeometryShaderOutput {
 #endif
 
 #ifndef UI_ENTITY
+float4x4 VIEW = mul(WORLDVIEW, inverse(WORLD));
 #ifndef NO_TEXTURE
 
         bool notFrame = true;
@@ -194,7 +195,6 @@ struct GeometryShaderOutput {
 #ifndef IS_EXP_ORB
 #ifndef BEACON
 #ifndef ARMOR_STAND
-#ifdef ITEM_XRAY
 #ifndef INSTANCEDSTEREO
 #ifndef UI_ENTITY
 #ifndef NO_TEXTURE
@@ -202,9 +202,19 @@ struct GeometryShaderOutput {
 #else
             if (isItem)
 #endif
+{
+    //         float angle = atan2(WORLD[0][0],WORLD[0][2]);
+    // float4x4 mWorld={{length(WORLD[0].xyz),0,0,WORLD[0][3]},
+    //                  {0,length(WORLD[1].xyz),0,WORLD[1][3]-sin(angle*2-M_PI/4)*0.1},
+    //                  {0,0,length(WORLD[2].xyz),WORLD[2][3]},
+    //                  {WORLD[3][0],WORLD[3][1],WORLD[3][2],WORLD[3][3]}};
+    // output.pos=mul(PROJ,mul(VIEW,mul(mWorld, float4(input[j].worldpos, 1))));
+    
+#ifdef ITEM_XRAY
                 if (poslen < 0.6)
                     output.pos.z = output.pos.z * 0.8;
 #endif
+}
 #endif
 #endif
 #endif
@@ -214,11 +224,8 @@ struct GeometryShaderOutput {
 #ifndef UI_ENTITY
 #ifndef BEACON
 #ifndef ARMOR_STAND
-#ifdef ENABLE_OUTLINE
             output.worldpos = input[j].worldpos;
             output.normal = normalize(input[j].normal);
-
-#endif
 #endif
 #endif
 #endif
@@ -263,8 +270,6 @@ struct GeometryShaderOutput {
             for (int pm = 0; pm < 3; pm++) {
                 int j = pm;
                 output.pos.w = input[j].pos.w;
-
-                float4x4 VIEW = mul(WORLDVIEW, inverse(WORLD));
 
 #ifndef PLAYER__
                 float3 worldPos = mul(WORLD, float4(input[j].worldpos, 1)).xyz;
@@ -411,7 +416,6 @@ struct GeometryShaderOutput {
                     float3 biasItem = float3(8, 0.5, 8);
                     float3 biasChest = float3(0.5, 0.5, 0.5);
                     float3 biasShulker = float3(0, 16, 0);
-
 #ifdef IS_DDDHEAD
                     float3 biasHead = -float3(0, 0.35, 0.5);
                     thickness *= 0.5;

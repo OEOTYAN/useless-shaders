@@ -14,7 +14,6 @@ struct VS_Input {
 #endif
 };
 
-
 struct PS_Input {
 	float4 position : SV_Position;
     #ifndef UI_ENTITY

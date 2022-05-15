@@ -429,12 +429,13 @@ color = TEXTURE_0.Sample(TextureSampler0,PSInput.uv);
     // for(int i2=0;i2<4;i2++)
     // {
     // float k=abs(WORLD[i2][i1]);
-    // int i=-1;
+    // if(i1<3&&i2<3)k*=4;
+    // int i=0;
 
     // float3 cp=(PSInput.worldpos-0.5);
     //   cp.x =cp.x*15+0.5+3.75*i1;
     //   cp.z =cp.z*10+1+2.5*i2;
-    // while(i<=4){
+    // while(i<=5){
     // int cc=((int)(k*pow(10,i)+0.01))%10;
     // if(i==1){
     //   cp.x +=0.1;

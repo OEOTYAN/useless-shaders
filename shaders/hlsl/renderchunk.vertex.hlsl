@@ -60,7 +60,7 @@ float3 mPos=VSInput.position.xyz;
 
 #if !defined(AS_ENTITY_RENDERER)&&defined(BLEND)&&!defined(BYPASS_PIXEL_SHADER)&&defined(WAVING_WATER)
 bool iswater=false;
-    if (PSInput.color.a>0.05&&PSInput.color.a<0.95&&abs(PSInput.color.b-PSInput.color.g)+abs(PSInput.color.r-PSInput.color.g)>0.0001) {
+    if (PSInput.color.a>0.05&&PSInput.color.a<0.95&&abs(PSInput.color.b-PSInput.color.g)+abs(PSInput.color.r-PSInput.color.g)>0.0001&&abs(abs(frac(VSInput.position.y)-0.5)-0.5)>0.0001) {
         iswater = true;
     }
 #endif
