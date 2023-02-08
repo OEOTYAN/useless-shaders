@@ -53,10 +53,10 @@ void vert_main()
     COLOR_2.y = _12_m0[23u].y;
     COLOR_2.z = _12_m0[23u].z;
     COLOR_2.w = isnan(1.0f) ? _192 : (isnan(_192) ? 1.0f : min(_192, 1.0f));
-    gl_Position.x = mad(_12_m0[2u].x, _117, mad(_12_m0[1u].x, _113, _109 * _12_m0[0u].x)) + _12_m0[3u].x;
-    gl_Position.y = mad(_12_m0[2u].y, _117, mad(_12_m0[1u].y, _113, _109 * _12_m0[0u].y)) + _12_m0[3u].y;
-    gl_Position.z = mad(_12_m0[2u].z, _117, mad(_12_m0[1u].z, _113, _109 * _12_m0[0u].z)) + _12_m0[3u].z;
-    gl_Position.w = mad(_12_m0[2u].w, _117, mad(_12_m0[1u].w, _113, _109 * _12_m0[0u].w)) + _12_m0[3u].w;
+    gl_Position.x =mad(_12_m0[3u].x, 1, + mad(_12_m0[2u].x, _117, mad(_12_m0[1u].x, _113, _109 * _12_m0[0u].x)));
+    gl_Position.y =mad(_12_m0[3u].y, 1, + mad(_12_m0[2u].y, _117, mad(_12_m0[1u].y, _113, _109 * _12_m0[0u].y)));
+    gl_Position.z =mad(_12_m0[3u].z, 1, + mad(_12_m0[2u].z, _117, mad(_12_m0[1u].z, _113, _109 * _12_m0[0u].z)));
+    gl_Position.w =mad(_12_m0[3u].w, 1, + mad(_12_m0[2u].w, _117, mad(_12_m0[1u].w, _113, _109 * _12_m0[0u].w)));
 }
 
 SPIRV_Cross_Output main(SPIRV_Cross_Input stage_input)

@@ -2,7 +2,7 @@ $input a_color0, a_position, a_texcoord0, a_texcoord1
 #ifdef INSTANCING
     $input i_data0, i_data1, i_data2, i_data3
 #endif
-$output v_color0, v_texcoord0, v_lightmapUV, v_position
+$output v_color0, v_texcoord0, v_lightmapUV, v_position, v_worldpos
 
 #include <bgfx_shader.sh>
 
@@ -25,14 +25,18 @@ void main() {
 
     vec3 worldPos = mul(model, vec4(a_position, 1.0)).xyz;
 
-            worldPos.y += (12.0 * Pow2(cos(3.141592653589793f *
-                                         (0.5 - RenderChunkFogAlpha.x))) +
-                         128.0 * (RenderChunkFogAlpha.x +
-                                  log(1.0 - RenderChunkFogAlpha.x)));
+        //  worldPos.y += (12.0 * Pow2(cos(3.141592653589793f *
+        //                               (0.5 - RenderChunkFogAlpha.x))) +
+        //               128.0 * (RenderChunkFogAlpha.x +
+        //                        log(1.0 - RenderChunkFogAlpha.x)));
 
     vec4 color;
+
+    v_position = a_position;
+
 #ifdef RENDER_AS_BILLBOARDS
-    worldPos += vec3(0.5, 0.5, 0.5);
+    vec3 worldPosBefore = worldPos;
+    worldPos += 0.5;
     vec3 viewDir = normalize(worldPos - ViewPositionAndTime.xyz);
     vec3 boardPlane = normalize(vec3(viewDir.z, 0.0, -viewDir.x));
     worldPos = (worldPos -
@@ -40,6 +44,7 @@ void main() {
         (a_color0.z - 0.5)) +
         (boardPlane * (a_color0.x - 0.5))));
     color = vec4(1.0, 1.0, 1.0, 1.0);
+    v_position += worldPos - worldPosBefore;
 #else
     color = a_color0;
 #endif
@@ -61,6 +66,6 @@ void main() {
     v_lightmapUV = a_texcoord1;
     v_color0 = color;
     //v_fog = fogColor;
-    v_position = a_position;
+    v_worldpos = worldPos;
     gl_Position = mul(u_viewProj, vec4(worldPos, 1.0));
 }

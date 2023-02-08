@@ -13,3 +13,4 @@ vec4 v_fog        : COLOR2;
 vec2 v_texcoord0  : TEXCOORD0;
 vec2 v_lightmapUV : TEXCOORD1;
 vec3 v_position   : TEXCOORD2;
+vec3 v_worldpos   : TEXCOORD3;
