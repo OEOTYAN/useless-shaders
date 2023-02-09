@@ -1,11 +1,9 @@
 @echo off
 set MATERIAL_BIN_TOOL_PATH="D:\program\MaterialBinTool-0.7.1-all.jar"
-set TARGET_PATH="D:\MCLauncher\Minecraft-1.19.22.1\data\renderer\materials"
+set TARGET_PATH="D:\MCLauncher\Minecraft-1.19.60.3\data\renderer\materials"
 
-echo ------compiling android------
-java -jar %MATERIAL_BIN_TOOL_PATH% -s D:\program\shaderc.exe RenderChunk\RenderChunk.json -c
-echo ------compiling windows------
-java -jar %MATERIAL_BIN_TOOL_PATH% -s D:\program\shaderc.exe RenderChunk_dxil2spirv2hlsl\RenderChunk.json -c
+echo ------compiling------
+java -jar %MATERIAL_BIN_TOOL_PATH% -s D:\program\shaderc.exe -c RenderChunk.json
 echo ------compile completed------
-@REM replace "RenderChunk_dxil2spirv2hlsl\RenderChunk.material.bin" %TARGET_PATH%
+replace "RenderChunk.material.bin" %TARGET_PATH%
 echo ------replace completed------
