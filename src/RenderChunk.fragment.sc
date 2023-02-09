@@ -1,6 +1,7 @@
 $input v_color0, v_texcoord0, v_lightmapUV, v_position, v_worldpos
 
 #include <bgfx_shader.sh>
+#include <defines.sh>
 
         SAMPLER2D(s_MatTexture, 0);
 SAMPLER2D(s_LightMapTexture, 1);
@@ -321,8 +322,6 @@ if(normal.y>0.99){
         }
     }
 #endif
-
-#define LIGHT_OVERLAY
 
 #ifdef LIGHT_OVERLAY
     if (!(isRedstoneDust) && length(v_worldpos) < 64.0) {
@@ -704,7 +703,9 @@ if(normal.y>0.99){
     }
 #endif
 
-        // diffuse.rgb *= texture2D(s_LightMapTexture, v_lightmapUV).rgb;
+#if !defined(NIGHT_VISION)
+    diffuse.rgb *= texture2D(s_LightMapTexture, v_lightmapUV).rgb;
+#endif
 
 #ifdef LIGHT_OVERLAY
 if(isLightOverlay==1){
