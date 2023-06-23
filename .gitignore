@@ -1,7 +1,4 @@
-*.bin
-resources
-Actor*
-RenderChunk_dxil2spirv2hlsl
-RenderChunk_ios
-RenderChunkPrepass_switch_spirv2glsl
-textures
+/data
+/env
+build
+*.material.bin

@@ -45,6 +45,7 @@
 #	define dFdy(_y) ddy(-(_y))
 #	define inversesqrt(_x) rsqrt(_x)
 #	define fract(_x) frac(_x)
+#   define fma(_a, _b, _c) mad(_a, _b, _c)
 
 #	define bvec2 bool2
 #	define bvec3 bool3
@@ -57,6 +58,10 @@
 #	else
 #		define REGISTER(_type, _reg) register(_type ## _reg)
 #	endif // BGFX_SHADER_LANGUAGE_HLSL
+
+#   if BGFX_SHADER_LANGUAGE_HLSL >= 400 && BGFX_SHADER_TYPE_FRAGMENT
+cbuffer __placeholder__ : REGISTER(b, 0) {};
+#   endif //BGFX_SHADER_LANGUAGE_HLSL >= 400
 
 #	if BGFX_SHADER_LANGUAGE_HLSL > 300 || BGFX_SHADER_LANGUAGE_PSSL || BGFX_SHADER_LANGUAGE_SPIRV || BGFX_SHADER_LANGUAGE_METAL
 #		if BGFX_SHADER_LANGUAGE_HLSL > 400 || BGFX_SHADER_LANGUAGE_PSSL || BGFX_SHADER_LANGUAGE_SPIRV || BGFX_SHADER_LANGUAGE_METAL
@@ -666,15 +671,35 @@ mat3 mtxFromCols(vec3 _0, vec3 _1, vec3 _2)
 	return transpose(mat3(_0, _1, _2) );
 #endif // BGFX_SHADER_LANGUAGE_GLSL
 }
+mat2 mtxFromRows(vec2 _0, vec2 _1)
+{
+#if BGFX_SHADER_LANGUAGE_GLSL
+	return transpose(mat2(_0, _1) );
+#else
+	return mat2(_0, _1);
+#endif // BGFX_SHADER_LANGUAGE_GLSL
+}
+mat2 mtxFromCols(vec2 _0, vec2 _1)
+{
+#if BGFX_SHADER_LANGUAGE_GLSL
+	return mat2(_0, _1);
+#else
+	return transpose(mat2(_0, _1) );
+#endif // BGFX_SHADER_LANGUAGE_GLSL
+}
 
 #if BGFX_SHADER_LANGUAGE_GLSL
+#define mtxFromRows2(_0, _1)         transpose(mat2(_0, _1) )
 #define mtxFromRows3(_0, _1, _2)     transpose(mat3(_0, _1, _2) )
 #define mtxFromRows4(_0, _1, _2, _3) transpose(mat4(_0, _1, _2, _3) )
+#define mtxFromCols2(_0, _1)                   mat2(_0, _1)
 #define mtxFromCols3(_0, _1, _2)               mat3(_0, _1, _2)
 #define mtxFromCols4(_0, _1, _2, _3)           mat4(_0, _1, _2, _3)
 #else
+#define mtxFromRows2(_0, _1)                   mat2(_0, _1)
 #define mtxFromRows3(_0, _1, _2)               mat3(_0, _1, _2)
 #define mtxFromRows4(_0, _1, _2, _3)           mat4(_0, _1, _2, _3)
+#define mtxFromCols2(_0, _1)         transpose(mat2(_0, _1) )
 #define mtxFromCols3(_0, _1, _2)     transpose(mat3(_0, _1, _2) )
 #define mtxFromCols4(_0, _1, _2, _3) transpose(mat4(_0, _1, _2, _3) )
 #endif // BGFX_SHADER_LANGUAGE_GLSL
@@ -692,6 +717,8 @@ uniform mat4  u_modelView;
 uniform mat4  u_modelViewProj;
 uniform vec4  u_alphaRef4;
 #define u_alphaRef u_alphaRef4.x
+uniform vec4  u_prevWorldPosOffset;
+uniform mat4  u_prevViewProj;
 
 #endif // __cplusplus
 

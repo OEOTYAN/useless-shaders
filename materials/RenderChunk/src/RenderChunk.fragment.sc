@@ -3,7 +3,7 @@ $input v_color0, v_texcoord0, v_lightmapUV, v_position, v_worldpos
 #include <bgfx_shader.sh>
 #include <defines.sh>
 
-        SAMPLER2D(s_MatTexture, 0);
+SAMPLER2D(s_MatTexture, 0);
 SAMPLER2D(s_LightMapTexture, 1);
 SAMPLER2D(s_SeasonsTexture, 2);
 
@@ -715,6 +715,7 @@ diffuse = mix(diffuse, vec4(1.0, 0.0, 0.0, 1.0), 0.3);
 }
 #endif
 
+#ifdef CHUNK_BORDERS
 
 #if !(BGFX_SHADER_LANGUAGE_HLSL)
 #define NO_MSAA
@@ -784,6 +785,8 @@ diffuse = mix(diffuse, vec4(1.0, 0.0, 0.0, 1.0), 0.3);
     diffuse.rgb =
         diffuse.rgb * lrrr * weightq + (mix(diffuse.rgb, max(chunkPos.z,chunkPos.x)<0.0625?vec3(1.0, 0.2, 0.2):vec3(0.0, 0.0, 1.0), 0.2)
          * weightq * l1 + (diffuse.rgb / 0.4) * (vec3(1.0, 1.0, 1.0) - diffuse.rgb) * weightq * l2);
+#endif
+
 #endif
 
     // diffuse.rgb = mix(diffuse.rgb,v_fog.rgb,v_fog.a);

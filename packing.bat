@@ -1,9 +1,9 @@
 @echo off
-set MATERIAL_BIN_TOOL_PATH="D:\program\MaterialBinTool-0.7.1-all.jar"
-set TARGET_PATH="D:\MCLauncher\Minecraft-1.19.60.3\data\renderer\materials"
-
+set TARGET_PATH="D:\MCLauncher\Minecraft-1.20.0.1\data\renderer\materials"
 echo ------compiling------
-java -jar %MATERIAL_BIN_TOOL_PATH% -s D:\program\shaderc.exe -c RenderChunk.json
+call build.bat -t 8 -p Merged -m Actor ActorBanner ActorGlint ItemInHandColor ItemInHandColorGlint ItemInHandTextured Particle RenderChunk
 echo ------compile completed------
-replace "RenderChunk.material.bin" %TARGET_PATH%
+7z a build\useless-%1.7z build\Merged\*.material.bin
+echo ------compress completed------
+replace build\Merged\*.material.bin %TARGET_PATH%
 echo ------replace completed------
