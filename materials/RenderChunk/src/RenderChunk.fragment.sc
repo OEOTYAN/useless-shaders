@@ -4,8 +4,8 @@ $input v_color0, v_texcoord0, v_lightmapUV, v_position, v_worldpos
 #include <defines.sh>
 
 SAMPLER2D(s_MatTexture, 0);
-SAMPLER2D(s_LightMapTexture, 1);
-SAMPLER2D(s_SeasonsTexture, 2);
+SAMPLER2D(s_SeasonsTexture, 1);
+SAMPLER2D(s_LightMapTexture, 2);
 
 void main() {
     vec4 diffuse;
