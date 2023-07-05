@@ -5,9 +5,7 @@
 
 vec4 applyEmissiveLighting(vec4 diffuse, vec4 light) {
 #if EMISSIVE || EMISSIVE_ONLY
-#ifndef NIGHT_VISION
     diffuse.rgb *= mix(vec3(1.0, 1.0, 1.0), light.rgb, diffuse.a); //make glowy stuff
-#endif
 #else
     diffuse = applyLighting(diffuse, light); // #line 27
 #endif

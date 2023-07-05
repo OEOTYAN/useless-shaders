@@ -6,6 +6,7 @@ $input a_position, a_color0, a_texcoord0, a_indices, a_normal
 $output v_color0, v_fog, v_light, v_texcoord0
 
 #include <bgfx_shader.sh>
+#include <defines.sh>
 #include <MinecraftRenderer.Materials/FogUtil.dragonh>
 #include <MinecraftRenderer.Materials/DynamicUtil.dragonh>
 #include <MinecraftRenderer.Materials/TAAUtil.dragonh>
@@ -38,7 +39,10 @@ void main() {
 
     float lightIntensity = calculateLightIntensity(World, vec4(a_normal.xyz, 0.0), TileLightColor);
     lightIntensity += OverlayColor.a * 0.35;
-    vec4 light = vec4(lightIntensity * TileLightColor.rgb, 1.0);
+    vec4 light = vec4(lightIntensity, lightIntensity, lightIntensity, 1.0);
+    #ifndef NIGHT_VISION
+    light.rgb *= TileLightColor.rgb;
+    #endif
     
     //StandardTemplate_VertSharedTransform
     vec3 worldPosition;

@@ -31,9 +31,7 @@ vec4 applyMultiColorChange(vec4 diffuse, vec3 changeColor, vec3 multiplicativeTi
 }
 
 vec4 applyLighting(vec4 diffuse, const vec4 light) {
-#ifndef NIGHT_VISION
     diffuse.rgb *= light.rgb;
-#endif
     return diffuse;
 }
 
@@ -44,7 +42,9 @@ float calculateLightIntensity(const mat4 world, const vec4 normal, const vec4 ti
     const float ZFAC = 0.1;
 
     vec3 N = normalize(mul(world, normal)).xyz;
+    #ifndef NIGHT_VISION
     N.y *= tileLightColor.a;
+    #endif
     float yLight = (1.0 + N.y) * 0.5;
 
     return yLight * (1.0 - AMBIENT) + N.x * N.x * XFAC + N.z * N.z * ZFAC + AMBIENT;
