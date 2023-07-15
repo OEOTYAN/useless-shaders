@@ -1,14 +1,24 @@
-$input v_color0
+$input v_color0, v_worldPos
 #if defined(GEOMETRY_PREPASS)
-    $input v_texcoord0, v_normal, v_worldPos, v_prevWorldPos
+    $input v_texcoord0, v_normal, v_prevWorldPos
 #endif
 
 #include <bgfx_shader.sh>
 
+float Hash(vec2 p) {
+    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
 void main() {
+
+    vec4 skycolor;
+    skycolor.rgb = v_color0.rgb + (Hash(v_worldPos.xz) - 0.5) / 255.0;
+    skycolor.a = v_color0.a;
+
+
 #if defined(OPAQUE)
     //Opaque
-    gl_FragColor = v_color0;
+    gl_FragColor = skycolor;
 
 #elif defined(GEOMETRY_PREPASS) && (BGFX_SHADER_LANGUAGE_GLSL >= 310 || BGFX_SHADER_LANGUAGE_HLSL >= 500 || BGFX_SHADER_LANGUAGE_PSSL || BGFX_SHADER_LANGUAGE_SPIRV || BGFX_SHADER_LANGUAGE_METAL)
     //GeometryPrepass
@@ -26,7 +36,7 @@ void main() {
     vec2 motionVector = _850.xy - _870.xy;
 
     //ColorMetalness
-    gl_FragData[0].xyz = v_color0.xyz;
+    gl_FragData[0].xyz = skycolor.xyz;
     gl_FragData[0].w = 0.0;
     
     //Normal
