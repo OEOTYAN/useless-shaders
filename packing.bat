@@ -1,9 +1,11 @@
 @echo off
-@REM set TARGET_PATH="D:\MCLauncher\Minecraft-1.20.1.2\data\renderer\materials"
+set TARGET_PATH="D:\LeviLauncher\minecraft\Minecraft-1.21.93.1\data\renderer\materials"
 echo ------compiling------
-call build.bat -t 8 -p Merged -m Actor ActorBanner ActorGlint ItemInHandColor ItemInHandColorGlint ItemInHandTextured Particle RenderChunk Sky
+cd materials
+lazurite build ./ -o ../build/bin -m Actor ActorBanner ActorGlint ItemInHandColor ItemInHandColorGlint ItemInHandTextured Particle RenderChunk RenderChunkPrepass Sky
+cd ..
 echo ------compile completed------
-7z a build\%1.7z build\Merged\*.material.bin
+7z a build\%1.7z build\bin\*.material.bin
 echo ------compress completed------
-@REM replace build\Merged\*.material.bin %TARGET_PATH%
+@REM replace build\bin\*.material.bin %TARGET_PATH%
 @REM echo ------replace completed------

@@ -37,7 +37,7 @@ vec4 applyLighting(vec4 diffuse, const vec4 light) {
 }
 
 float calculateLightIntensity(const mat4 world, const vec4 normal, const vec4 tileLightColor) {
-#if FANCY
+#if FANCY__ON
     const float AMBIENT = 0.45;
     const float XFAC = -0.1;
     const float ZFAC = 0.1;

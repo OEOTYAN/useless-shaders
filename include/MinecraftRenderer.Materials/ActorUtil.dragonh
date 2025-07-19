@@ -4,7 +4,7 @@
 #include "DynamicUtil.dragonh"
 
 vec4 applyEmissiveLighting(vec4 diffuse, vec4 light) {
-#if EMISSIVE || EMISSIVE_ONLY
+#if EMISSIVE__EMISSIVE || EMISSIVE__EMISSIVE_ONLY
     diffuse.rgb *= mix(vec3(1.0, 1.0, 1.0), light.rgb, diffuse.a); //make glowy stuff
 #else
     diffuse = applyLighting(diffuse, light); // #line 27
@@ -15,17 +15,17 @@ vec4 applyEmissiveLighting(vec4 diffuse, vec4 light) {
 bool shouldDiscard(vec3 diffuse, float alpha, float epsilon) {
     bool result = false;
 
-#if EMISSIVE || EMISSIVE_ONLY
-    #if EMISSIVE
-        result = dot(vec4(diffuse, alpha), vec4(1.0, 1.0, 1.0, 1.0)) < epsilon;
+#if EMISSIVE__EMISSIVE || EMISSIVE__EMISSIVE_ONLY
+    #if EMISSIVE__EMISSIVE
+    result = dot(vec4(diffuse, alpha), vec4(1.0, 1.0, 1.0, 1.0)) < epsilon;
     #else
-        result = (alpha < epsilon) || (alpha > 1.0 - epsilon);
+    result = (alpha < epsilon) || (alpha > 1.0 - epsilon);
     #endif
 #else
-    #if !CHANGE_COLOR && !CHANGE_COLOR_MULTI
-        result = alpha < 0.5; //#line 48
+    #if !CHANGE_COLOR__ON && !CHANGE_COLOR__MULTI
+    result = alpha < 0.5; //#line 48
     #else
-        result = alpha < epsilon; // #line 51
+    result = alpha < epsilon; // #line 51
     #endif
 #endif
 
@@ -49,14 +49,14 @@ vec4 applyHudOpacity(vec4 diffuse, float hudOpacity) {
 vec4 getActorAlbedoNoColorChange(vec2 uv, sampler2D matTexture, sampler2D matTexture1, vec4 matColor) {
     vec4 albedo = matColor;
     albedo *= texture2D(matTexture, uv);
-    
-    #if MASKED_MULTITEXTURE
-        vec4 tex1 = texture2D(matTexture1, uv);
+
+    #if MASKED_MULTITEXTURE__ON
+    vec4 tex1 = texture2D(matTexture1, uv);
 
         // If tex1 has a non-black color and no alpha, use color; otherwise use tex1 
-        float maskedTexture = float((tex1.r + tex1.g + tex1.b) * (1.0 - tex1.a) > 0.0);
-        albedo = mix(tex1, albedo, maskedTexture);
-    #endif // MASKED_MULTITEXTURE
+    float maskedTexture = float((tex1.r + tex1.g + tex1.b) * (1.0 - tex1.a) > 0.0);
+    albedo = mix(tex1, albedo, maskedTexture);
+    #endif // MASKED_MULTITEXTURE__ON
     return albedo; // #line 69
 }
 
