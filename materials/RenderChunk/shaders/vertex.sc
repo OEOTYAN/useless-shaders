@@ -5,6 +5,7 @@ $input i_data0, i_data1, i_data2
 $output v_color0, v_texcoord0, v_lightmapUV, v_position, v_worldpos
 
 #include <bgfx_shader.sh>
+#include <MinecraftRenderer.Materials/LightUtil.dragonh>
 
 uniform vec4 RenderChunkFogAlpha;
 uniform vec4 FogAndDistanceControl;
@@ -63,7 +64,7 @@ void main() {
 // #endif
 
     v_texcoord0 = a_texcoord0;
-    v_lightmapUV = a_texcoord1;
+    v_lightmapUV = computeLighting_RenderChunk_Vertex(a_texcoord1);
     v_color0 = color;
     //v_fog = fogColor;
     v_worldpos = worldPos;

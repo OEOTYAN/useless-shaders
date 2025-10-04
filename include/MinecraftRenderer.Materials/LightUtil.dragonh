@@ -1,0 +1,12 @@
+#ifndef LIGHT_UTIL_H_HEADER_GUARD
+#define LIGHT_UTIL_H_HEADER_GUARD
+
+vec2 computeLighting_RenderChunk_Vertex(vec2 encodedLightmapUV) {
+    uint light = uint(floor(encodedLightmapUV.x * 255.0));
+    // uint dither = uint(floor(encodedLightmapUV.y * 255.0));
+    float u = float(light & 15u) * (1.0 / 16.0);
+    float v = float((light & 240u) >> uint(4)) * (1.0 / 16.0);
+    return vec2(clamp(u, 0.0, 1.0), clamp(v, 0.0, 1.0));
+}
+
+#endif // LIGHT_UTIL_H_HEADER_GUARD

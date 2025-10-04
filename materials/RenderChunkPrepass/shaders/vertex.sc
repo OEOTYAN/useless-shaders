@@ -14,6 +14,7 @@ $output v_pbrTextureId
 #include <bgfx_shader.sh>
 #include <MinecraftRenderer.Materials/TAAUtil.dragonh>
 #include <MinecraftRenderer.Materials/FogUtil.dragonh>
+#include <MinecraftRenderer.Materials/LightUtil.dragonh>
 
 uniform vec4 RenderChunkFogAlpha;
 uniform vec4 FogAndDistanceControl;
@@ -101,15 +102,11 @@ color0.a = mix(a_color0.a, 1.0, alphaFadeOut);
 
 #endif
 
-    //StandardTemplate_InvokeLightingVertexFunction
-vec2 lightmapUV = a_texcoord1;
-
-
 v_position = a_position;
 v_texcoord0 = texcoord0;
 v_color0 = color0;
 v_fog = fog;
-v_lightmapUV = lightmapUV;
+v_lightmapUV = computeLighting_RenderChunk_Vertex(a_texcoord1);
 v_tangent = tangent;
 v_normal = normal;
 v_bitangent = bitangent;

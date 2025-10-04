@@ -311,8 +311,9 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 {
 
     cp.x = cp.x - 0.13;
-    // x
-    if (light_uv.x == 0.0)
+
+    ivec2 lightLevel = ivec2(light_uv * 16.0 + 0.001);
+    if (lightLevel.x == 0)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
@@ -325,8 +326,9 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.0 && light_uv.x <= 0.125)
+    else if (lightLevel.x == 1)
     {
+
         if ((cp.x <= 0.4 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 && cp.z >= 0.35) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.65))
@@ -337,7 +339,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.125 && light_uv.x <= 0.1875)
+    else if (lightLevel.x == 2)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.45) ||
@@ -351,7 +353,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.1875 && light_uv.x <= 0.25)
+    else if (lightLevel.x == 3)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
@@ -364,7 +366,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.25 && light_uv.x <= 0.3125)
+    else if (lightLevel.x == 4)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.45) ||
@@ -376,7 +378,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.3125 && light_uv.x <= 0.375)
+    else if (lightLevel.x == 5)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.55 && cp.z >= 0.25) ||
@@ -390,7 +392,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.375 && light_uv.x <= 0.4375)
+    else if (lightLevel.x == 6)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.55 && cp.z >= 0.25) ||
@@ -404,7 +406,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.4375 && light_uv.x <= 0.5)
+    else if (lightLevel.x == 7)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 && cp.z >= 0.65) ||
@@ -416,7 +418,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.5 && light_uv.x <= 0.5625)
+    else if (lightLevel.x == 8)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
@@ -430,7 +432,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.5625 && light_uv.x <= 0.625)
+    else if (lightLevel.x == 9)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -444,7 +446,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.625 && light_uv.x <= 0.6875)
+    else if (lightLevel.x == 10)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -460,7 +462,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.6875 && light_uv.x <= 0.75)
+    else if (lightLevel.x == 11)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -475,7 +477,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.75 && light_uv.x <= 0.8125)
+    else if (lightLevel.x == 12)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -492,7 +494,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.8125 && light_uv.x <= 0.875)
+    else if (lightLevel.x == 13)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -508,7 +510,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.875 && light_uv.x <= 0.9375)
+    else if (lightLevel.x == 14)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -523,7 +525,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.x > 0.9375)
+    else if (lightLevel.x == 15)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -544,7 +546,8 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
     cp.x = cp.x * 2.0 + 0.55;
     cp.z = cp.z * 2.0 - 0.25;
     // y
-    if (light_uv.y == 0.0)
+
+    if (lightLevel.y == 0)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
@@ -557,8 +560,9 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.0 && light_uv.y <= 0.125)
+    else if (lightLevel.y == 1)
     {
+
         if ((cp.x <= 0.4 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 && cp.z >= 0.35) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.65))
@@ -569,7 +573,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.125 && light_uv.y <= 0.1875)
+    else if (lightLevel.y == 2)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.45) ||
@@ -583,7 +587,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.1875 && light_uv.y <= 0.25)
+    else if (lightLevel.y == 3)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
@@ -596,7 +600,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.25 && light_uv.y <= 0.3125)
+    else if (lightLevel.y == 4)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.3 + 0.15 && cp.z <= 0.75 && cp.z >= 0.45) ||
@@ -608,7 +612,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.3125 && light_uv.y <= 0.375)
+    else if (lightLevel.y == 5)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.55 && cp.z >= 0.25) ||
@@ -622,7 +626,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.375 && light_uv.y <= 0.4375)
+    else if (lightLevel.y == 6)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.55 && cp.z >= 0.25) ||
@@ -636,7 +640,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.4375 && light_uv.y <= 0.5)
+    else if (lightLevel.y == 7)
     {
         if ((cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
             (cp.x <= 0.4 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.75 && cp.z >= 0.65) ||
@@ -648,7 +652,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.5 && light_uv.y <= 0.5625)
+    else if (lightLevel.y == 8)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.25) ||
@@ -662,7 +666,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.5625 && light_uv.y <= 0.625)
+    else if (lightLevel.y == 9)
     {
         if ((cp.x <= 0.3 + 0.15 && cp.x >= 0.2 + 0.15 && cp.z <= 0.55 && cp.z >= 0.45) ||
             (cp.x <= 0.2 + 0.15 && cp.x >= 0.1 + 0.15 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -676,7 +680,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.625 && light_uv.y <= 0.6875)
+    else if (lightLevel.y == 10)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -692,7 +696,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.6875 && light_uv.y <= 0.75)
+    else if (lightLevel.y == 11)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -707,7 +711,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.75 && light_uv.y <= 0.8125)
+    else if (lightLevel.y == 12)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -724,7 +728,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.8125 && light_uv.y <= 0.875)
+    else if (lightLevel.y == 13)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -740,7 +744,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.875 && light_uv.y <= 0.9375)
+    else if (lightLevel.y == 14)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -755,7 +759,7 @@ void light_overlay(inout bool needDiscard, inout int isLightOverlay, vec3 cp, ve
 #endif
         }
     }
-    else if (light_uv.y > 0.9375)
+    else if (lightLevel.y == 15)
     {
         if ((cp.x <= 0.7 && cp.x >= 0.4 && cp.z <= 0.35 && cp.z >= 0.25) ||
             (cp.x <= 0.6 && cp.x >= 0.5 && cp.z <= 0.75 && cp.z >= 0.35) ||
@@ -817,12 +821,8 @@ void chunk_border(inout vec4 diffuse, vec3 chunkPos)
     int l1 = 0;
     int l2 = 0;
     int lrrr = 0;
-    for (int ci = 0;
-         ci < ckk;
-         ci++)
-        for (int cj = 0;
-             cj < ckk;
-             cj++)
+    for (int ci = 0; ci < ckk; ci++)
+        for (int cj = 0; cj < ckk; cj++)
         {
             vec3 lchunkPos = fract((chunkPos + chdx * ci / float(ckk) + chdy * cj / float(ckk)) / 16.0) * 16.0;
             vec3 lcp = fract(cp + chdx * ci / float(ckk) + chdy * cj / float(ckk));

@@ -1,2 +1,1 @@
 #define NIGHT_VISION
-#define LIGHT_OVERLAY
